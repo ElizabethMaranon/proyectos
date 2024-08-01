@@ -1,4 +1,4 @@
-// import moment from 'moment';
+import moment from 'moment';
 const hoy = moment();
 const Hoy = hoy.format("dddd, Do of MMM of YYYY");
 // Bienvenido
