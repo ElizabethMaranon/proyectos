@@ -95,7 +95,7 @@ function comentarioAleatorio(comentarios) {
 function selectMenu(menu, tipo, tiempo) {
     let mensaje = `Menú de ${tiempo.charAt(0).toUpperCase() + tiempo.slice(1)} - ${tipo.charAt(0).toUpperCase() + tipo.slice(1)}:\n\n`;
     menu.forEach((articulo, index) => {
-        mensaje += `${index + 1}. ${ .nombre} - ${articulo.precio.toFixed(2) } €\n`;
+        mensaje += `${index + 1}. ${articulo.nombre} - ${articulo.precio.toFixed(2) } €\n`;
     });
 
     let selectHora = NaN;
