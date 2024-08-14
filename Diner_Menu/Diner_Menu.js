@@ -1,6 +1,3 @@
-// import moment from 'moment';
-const hoy = moment();
-const Hoy = hoy.format("dddd, Do of MMM of YYYY");
 // Bienvenido
 const Bienvenido =
   "Bienvenido a Bottega Restaurante \nNuestro horario es: \n \n Desayunos de 6 a 12 \n Comidas de 13 a 16 \n Merienda de 17 a 19 \n Cenas de 20 a 24 \n \n Por favor, indique la hora en formato HH \n";
@@ -8,6 +5,7 @@ const noIncluido = "Ese plato no está incluido en el menú";
 // Lista menus
 let horaVal = false;
 let hora;
+
 
 const Desayunos = { Cafe: 1, Zumo: 3, Croisant: 2 };
 
@@ -118,7 +116,7 @@ while (!horaVal) {
     while (!entrantesVal) {
       entrantesPrompt = prompt(EntrantesCarta);
       if (entrantesPrompt === null) break;
-      entrantesVal = entrantesKey.includes(entrantesPrompt);
+      toLowerCase(entrantesVal) = entrantesKey.includes(toLowerCase(entrantesPrompt));
       if (!entrantesVal) {
         alert(noIncluido);
       } else if (entrantesVal) {
