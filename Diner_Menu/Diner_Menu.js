@@ -83,7 +83,7 @@ const comentarioMenu = {
     ]
 };
 
-// Devuelve aleatoriamente(random) un camentario de la variable comentarios(limite la cantidad de comentarios)
+// Devuelve aleatoriamente(random) un comentario de la variable comentarios(limite la longitud de comentarios)
 function comentarioAleatorio(comentarios) {
     const indice = Math.floor(Math.random() * comentarios.length);
     return comentarios[indice];
@@ -95,7 +95,7 @@ function comentarioAleatorio(comentarios) {
 function selectMenu(menu, tipo, tiempo) {
     let mensaje = `Menú de ${tiempo.charAt(0).toUpperCase() + tiempo.slice(1)} - ${tipo.charAt(0).toUpperCase() + tipo.slice(1)}:\n\n`;
     menu.forEach((articulo, index) => {
-        mensaje += `${index + 1}. ${articulo.nombre} - ${articulo.precio.toFixed(2) } €\n`;
+        mensaje += `${index + 1}. ${ .nombre} - ${articulo.precio.toFixed(2) } €\n`;
     });
 
     let selectHora = NaN;
@@ -119,7 +119,7 @@ function selectMenu(menu, tipo, tiempo) {
 // Tipo menu
 function tipoMenu(hora) { // Forma de escribir la hora a introducir
     const [hours, minutes] = hora.split(':').map(Number);
-    // Condiciones de hora a introducir (entre 8 y 24), no mayor de 23:00, no es hora, no es minutos
+    // Condiciones de hora a introducir (entre 8 y 24), no mayor de 23:00,  es hora,  es minutos
     if (hours < 8 || hours >= 24 || (hours === 23 && minutes > 0) || isNaN(hours) || isNaN(minutes)) {
         return null;
     }
@@ -133,7 +133,6 @@ function tipoMenu(hora) { // Forma de escribir la hora a introducir
     } else if (hours >= 17 && hours <= 23) {
         return 'cena';
     } else {
-      // Si no se cumpll eninguna devolver nulo
         return null;
     }
 }
