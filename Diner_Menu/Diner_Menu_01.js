@@ -2,46 +2,12 @@
 const hoy = moment();
 const Hoy = hoy.format("dddd, Do of MMM of YYYY");
 // Menu
-const menu = {
-    Desayunos : { Cafe: 1, Zumo: 3, Croisant: 2 },
-    Comida: {
-        entrada: { Ensalada: 10, Calamares: 15, Ibéricos: 20 },
-        principal: { Pavo: 15, Carrilleras: 22, Chuleta: 25 },
-        postre: { Tarta: 8, Helado: 5, Fruta: 2 }
-    },       
-};
+
 const Bienvenido =
   "Bienvenido a Bottega Restaurante \nNuestro horario es: \n \n Desayunos de 6 a 12 \n Comidas de 13 a 16 \n Merienda de 17 a 19 \n Cenas de 20 a 24 \n \n Por favor, indique la hora en formato HH \n";
 const noIncluido = "Ese plato no está incluido en el menú";
-let horaVal = false;
-let hora;
-let entrantesVal = false;
-let entrantesPrompt;
-let entrantesKey = Object.keys(menu.Comida.entrada);
-let principalesVal = false;
-let principalesPrompt;
-let principalesKey = Object.keys(menu.Comida.principal);
-let postresVal = false;
-let postresPrompt;
-let postresKey = Object.keys(menu.Comida.postre);
 
-// Desglose array
-let DesayunosCarta = "";
-for (let [Desayuno, precio] of Object.entries(menu.Desayunos)) { DesayunosCarta += Desayuno + ": " + precio + " €\n";}
-let MeriendasCarta = "";
-for (let [Merienda, precio] of Object.entries(menu.Desayunos)) { MeriendasCarta += Merienda + ": " + (precio + 1) + " €\n";}
-let EntrantesCarta = "";
-for (let [Entrante, precio] of Object.entries(menu.Comida.entrada)) { EntrantesCarta += Entrante + ": " + precio + " €\n";}
-let PrincipalesCarta = "";
-for (let [Principal, precio] of Object.entries(menu.Comida.principal)) { PrincipalesCarta += Principal + ": " + precio + " €\n";}
-let PostresCarta = "";
-for (let [Postre, precio] of Object.entries(menu.Comida.postre)) { PostresCarta += Postre + ": " + precio + " €\n";}
-let EntrantesCartaNoche = "";
-for (let [Entrante, precio] of Object.entries(menu.Comida.entrada)) { EntrantesCartaNoche += Entrante + ": " + (precio + 5) + " €\n";}
-let PrincipalesCartaNoche = "";
-for (let [Principal, precio] of Object.entries(menu.Comida.principal)) { PrincipalesCartaNoche += Principal + ": " + (precio + 5) + " €\n";}
-let PostresCartaNoche = "";
-for (let [Postre, precio] of Object.entries(menu.Comida.postre)) { PostresCartaNoche += Postre + ": " + (precio + 5) + " €\n";}
+
 
 // Cartas
 let CartaMediodia = 
@@ -49,16 +15,6 @@ let CartaMediodia =
 let CartaNoche =
   "Entrantes: \n" + EntrantesCartaNoche + "\n \n" + "Principales: \n" + PrincipalesCartaNoche + "\n \n" + "Postres \n" + PostresCartaNoche;
 
-  // Comentarios
-let comentario = "";
-let aleatorio = "";
-function ComentarioCamarero() {
-  var comentarios =
-    "Buena elección, Ese plato tiene buena pinta, Una elección muy buena, Sabia elección";
-  comentario = comentarios.split(",");
-  aleatorio = Math.floor(Math.random() * comentario.length);
-  return comentario[aleatorio];
-}
 
 // While
 
