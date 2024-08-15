@@ -57,7 +57,7 @@ const menus = {
     }
 };
 
-// Comentarios
+// Variable Comentarios
 const comentarios = [
     "¡Buena elección!",
     "Ese plato tiene buena pinta.",
@@ -97,14 +97,15 @@ function selectMenu(menu, tipo, tiempo) {
     menu.forEach((articulo, index) => {
         mensaje += `${index + 1}. ${articulo.nombre} - ${articulo.precio.toFixed(2) } €\n`;
     });
-
-    let selectHora = NaN;
+    // isNaN intenta convertir en número.Si no se puede convertir: true; en caso contrario: false
+    let selectHora = NaN; // Nan: Not A Number // (&&: o) (||: y)
     while (isNaN(selectHora) || selectHora < 1 || selectHora > menu.length) {
         let seleccion = prompt(`\n${mensaje}\nElige el número del plato ${tipo} (1-${menu.length}):`);
-        if (seleccion === null) { 
+        if (seleccion === null) { // Cancelar
             alert("Proceso cancelado.");
             return null;
         }
+        // parseInt()→Convierte argumento de tipo cadena y devuelve un entero de la base especificada.
         selectHora = parseInt(seleccion, 10);
         if (isNaN(selectHora) || selectHora < 1 || selectHora > menu.length) {
             alert("Hora no válida. Por favor, ingresa la hora correctamente");
@@ -146,8 +147,8 @@ function ejecutarMenu() {
             alert("Proceso cancelado.");
             return;
         }
-        horaComida = tipoMenu(horaSeleccionada); // 
-        if (!horaComida) {
+        horaComida = tipoMenu(horaSeleccionada); // Menu a ofrecer dependiendo de la hora
+        if (!horaComida) { // Si hora introducida no correcta
             alert("Hora no válida. Por favor, ingresa la hora correctamente");
         }
     }
@@ -172,7 +173,7 @@ function ejecutarMenu() {
     if (!Segundo) return;  // Si el usuario cancela
 
 
-    // Cuenta 
+    // Cuenta = suma de losprecios de comidas elegidas
    const costoTotal = Entrante.precio + Principal.precio + Segundo.precio;
     alert(`Bottega Restaurante, ${Hoy}\n\nAquí tienes la cuenta\n${Entrante.nombre} = ${Entrante.precio} €\n${Principal.nombre} = ${Principal.precio} €\n${Segundo.nombre} = ${Segundo.precio} €\n\nTotal cuenta: ${costoTotal.toFixed(2)} €\nMuchas gracias por su visita.\nEsperamos volver a verle pronto.`);
 }
