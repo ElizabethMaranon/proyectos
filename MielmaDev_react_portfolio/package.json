@@ -1,14 +1,16 @@
 {
-  "name": "react-redux-router",
+  "name": "mielmadev_portfolio",
   "version": "1.0.0",
-  "description": "Basic skeleton codebase for React/Redux/Router applications.",
+  "description": "Portfolio personal de MielmaDev creado con react",
   "scripts": {
     "preinstall": "npm set audit false",
+    "postinstall": "cp env.example.js env.js",
     "start": "webpack-dev-server --config webpack/dev.config.js --watch",
     "build": "cross-env NODE_ENV=production webpack --config webpack/prod.config.js --progress --display-error-details --color",
     "heroku-postbuild": "npm run build",
     "precommit": "eslint src",
-    "prod": "NODE_ENV=production node server.js"
+    "prod": "NODE_ENV=production node server.js",
+    "saludo": "echo 'Hola, soy MielmaDev'"
   },
   "repository": {
     "type": "git",
@@ -25,7 +27,7 @@
     "sass",
     "css module"
   ],
-  "author": "Your Name Here",
+  "author": "MielmaDev",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/bottega-code-school/js-builder/issues"
@@ -55,6 +57,7 @@
     "file-loader": "^1.1.11",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "moment": "^2.30.1",
     "postcss-loader": "^2.1.6",
     "react": "16.13.1",
     "react-dom": "16.13.1",
