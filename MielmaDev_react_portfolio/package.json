@@ -1,7 +1,7 @@
 {
-  "name": "mielmadev_portfolio",
+  "name": "react-redux-router",
   "version": "1.0.0",
-  "description": "Portfolio personal de MielmaDev creado con react",
+  "description": "Basic skeleton codebase for React/Redux/Router applications.",
   "scripts": {
     "preinstall": "npm set audit false",
     "start": "webpack-dev-server --config webpack/dev.config.js --watch",
@@ -55,7 +55,6 @@
     "file-loader": "^1.1.11",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
-    "moment": "^2.30.1",
     "postcss-loader": "^2.1.6",
     "react": "16.13.1",
     "react-dom": "16.13.1",
