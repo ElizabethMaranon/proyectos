@@ -1,22 +1,28 @@
-import React, { Component } from "react";// importar react y componentes
-import PortfolioItem from "./portfolio-item";// importar PortfolioItems creado
-
-export default class PortfolioContenedor extends Component {// Exportar predeterminada, clase, extender a componentes
-    constructor() { // agregar constructor, super() console.log
-        super();// conecta componente de clase2 con su constructor de clase princ, hereda bondades
-        console.log("El contenedor portfolio ha sido renderizado");
+import React, { Component } from "react";
+import PortfolioItem from "./portfolio-item";
+export default class PortfolioContenedor extends Component {
+    constructor() { 
+        super();
+        this.state = { // crear state
+            pagTitle: "Bienvenido a mi Portfolio",
+            datos: [ // Crear objeto
+                { title: "bat" },
+                { title: "bi" },
+                { title: "hiru" },
+                { title: "lau" }
+            ]
+        };
     }
     portfolioItems() {// Crear función automatizada bucle
-        const datos = ["Bat", "Bi", "Hiru"];
-        return datos.map(item => {
-            return <PortfolioItem />
+        return this.state.datos.map(item => {
+            return <PortfolioItem title={item.title} url={"google.com"} />;
         });
     }
     render() {
         return (
             <div>
-                <h2>Este es el contenedor de portfolio</h2>
-                {this.portfolioItems()}{/* Llamar a la función */}
+                <h2>{this.state.pagTitle}</h2>
+                {this.portfolioItems()}
             </div>
         );
     }
