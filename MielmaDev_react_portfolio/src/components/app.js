@@ -4,21 +4,18 @@ import React, { Component } from 'react';
 import moment from "moment";
 // importar PortfolioContenedor creado
 import PortfolioContenedor from "./Portfolio/portfolio-contenedor";
-// importar PortfolioItems creado
-import PortfolioItems from './Portfolio/portfolio-items';
-
 
 // Exportar predeterminada, clase, extender a componentes.
 // render sin argumento
 // Declaración return, parece html pero esl JavaScript(JSX)
 export default class App extends Component {
+
   render() {
     return (
       <div className='app'>
         <h1>MielmaDev Portfolio</h1>
         {/* agregar contenido de PortfolioContenedor */}
         <PortfolioContenedor/>
-        <PortfolioItems/>
         {/* agregar hora */}
         <h2>{moment().format('MMMM Do YYYY, h:mm:ss a')}</h2>
       </div>
