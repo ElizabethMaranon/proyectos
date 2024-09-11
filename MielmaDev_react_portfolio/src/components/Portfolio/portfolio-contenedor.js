@@ -1,18 +1,13 @@
-// importar react y componentes
-import React, { Component } from "react";
-// importar PortfolioItems creado
-import PortfolioItem from "./portfolio-item";
+import React, { Component } from "react";// importar react y componentes
+import PortfolioItem from "./portfolio-item";// importar PortfolioItems creado
 
-// Exportar predeterminada, clase, extender a componentes
-// render sin argumento Declaración return, parece html pero esl JavaScript(JSX)
-export default class PortfolioContenedor extends Component {
-    constructor() {
-        // super() puente conecta componente de clase2 con su constructor de clase1, hereda todas las bondades del padre.
+export default class PortfolioContenedor extends Component {// Exportar predeterminada, clase, extender a componentes
+    constructor() { // agregar constructor, super() console.log
+        // super() puente conecta componente de clase2 con su constructor de clase, hereda todas las bondades del padre.
         super();
         console.log("El contenedor portfolio ha sido renderizado");
     }
-    // Crear función automatizada
-    portfolioItems() {
+    portfolioItems() {// Crear función automatizada bucle
         const datos = ["Bat", "Bi", "Hiru"];
         return datos.map(item => {
             return <PortfolioItem />
@@ -22,8 +17,7 @@ export default class PortfolioContenedor extends Component {
         return (
             <div>
                 <h2>Este es el contenedor de portfolio</h2>
-                {/* Llamar a la función */}
-                {this.portfolioItems()}
+                {this.portfolioItems()}{/* Llamar a la función */}
             </div>
         );
     }
