@@ -14,10 +14,11 @@ export default class App extends Component {
     return (
       <div className='app'>
         <h1>MielmaDev Portfolio</h1>
-        {/* agregar contenido de PortfolioContenedor */}
-        <PortfolioContenedor/>
         {/* agregar hora */}
         <h2>{moment().format('MMMM Do YYYY, h:mm:ss a')}</h2>
+        {/* agregar contenido de PortfolioContenedor */}
+        <PortfolioContenedor />
+
       </div>
     );
   }
