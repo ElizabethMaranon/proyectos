@@ -4,8 +4,8 @@ export default class App extends Component {
   render() {
     return (
       <div className='app'>
-        <h1>DevCamp React Starter</h1>
-        <h2>React Skeleton</h2>
+        <h1>Skeleton</h1>
+        <h2>React, Props and State</h2>
       </div>
     );
   }
