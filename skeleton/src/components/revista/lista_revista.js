@@ -12,12 +12,15 @@ export default class ListaRevista extends Component {
         super();
         this.state = {
             ListaRevista: datosRevista,
+            saludo: 'MielmaDev',
             isOpen: true
         }
     }
     // Construir `render`
     render() {
-        return <h2>MielmaDev</h2>;
+        return <div>
+            {this.state.saludo}
+        </div>
     }
 }
 
