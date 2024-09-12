@@ -18,9 +18,9 @@ export default class ListaRevista extends Component {
     }
     // Construir `render`
     render() {
-        return <div>
-            {this.state.saludo}
-        </div>
+        return <h2>
+            {this.props.encabezado}
+        </h2>
     }
 }
 
