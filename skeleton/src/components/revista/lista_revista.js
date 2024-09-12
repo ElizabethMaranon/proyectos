@@ -5,8 +5,16 @@ const datosRevista = [
     { title: 'Post two', content: 'Post content', status: 'published' },
     { title: 'Post three', content: 'Post content', status: 'published' },
     { title: 'Post four', content: 'Post content', status: 'published' },
-]
-// Construir export predeterminado con función constructora
+];
+
+const EntradaRevista = props => {
+    return (
+        <div>
+            <h1>{props.titulo}</h1>
+            <p>{props.contenido}</p>
+        </div>
+    )
+}
 export default class ListaRevista extends Component {
     constructor(props) {
         super();
@@ -16,11 +24,16 @@ export default class ListaRevista extends Component {
             isOpen: true
         }
     }
-    // Construir `render`
     render() {
-        return <h2>
-            {this.props.encabezado}
-        </h2>
+        return (
+            <div>
+                <h2>{this.props.encabezado}</h2>
+                <EntradaRevista
+                    titulo="Título artículo"
+                    contenido="Contenido artículo" />
+            </div>
+        )
+
     }
 }
 
