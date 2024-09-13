@@ -14,7 +14,7 @@ export default class ListaRevista extends Component {
         super();
         this.state = {
             datosRevista: rawDatosRevista,
-            isOpen: true
+            abierto: true
         };
     }
     limpiarEntradas = () => {
