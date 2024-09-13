@@ -1,36 +1,37 @@
 import React, { Component } from 'react';
-// Agregar constante `datosRevista`(imita a una API)
+import { EntradaRevista } from "./entrada_revista"
+
 const datosRevista = [
-    { title: 'Post One', content: 'Post content', status: 'draft' },
-    { title: 'Post two', content: 'Post content', status: 'published' },
-    { title: 'Post three', content: 'Post content', status: 'published' },
-    { title: 'Post four', content: 'Post content', status: 'published' },
+    { titulo: 'Post One', contenido: 'Post contenido', estado: 'draft' },
+    { titulo: 'Post two', contenido: 'Post contenido', estado: 'published' },
+    { titulo: 'Post three', contenido: 'Post contenido', estado: 'published' },
+    { titulo: 'Post four', contenido: 'Post contenido', estado: 'published' },
 ];
 
-const EntradaRevista = props => {
-    return (
-        <div>
-            <h1>{props.titulo}</h1>
-            <p>{props.contenido}</p>
-        </div>
-    )
-}
+
 export default class ListaRevista extends Component {
     constructor(props) {
         super();
         this.state = {
-            ListaRevista: datosRevista,
-            saludo: 'MielmaDev',
+            datosRevista: datosRevista,
             isOpen: true
-        }
+        };
     }
     render() {
+        const entradasRevista = this.state.datosRevista.map(entradaRevista => {
+            return (
+                <div key={entradaRevista.titulo}>
+                    <EntradaRevista
+                        titulo={entradaRevista.titulo}
+                        contenido={entradaRevista.contenido}
+                    />
+                </div>
+            );
+        })
         return (
             <div>
                 <h2>{this.props.encabezado}</h2>
-                <EntradaRevista
-                    titulo="Título artículo"
-                    contenido="Contenido artículo" />
+                {entradasRevista}
             </div>
         )
 

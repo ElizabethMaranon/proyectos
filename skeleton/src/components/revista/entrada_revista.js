@@ -1,10 +1,10 @@
-const entradaRevista = () => {
+import React,  {Component} from 'react';
+
+export const EntradaRevista = props => {
     return (
         <div>
-            <h1>¡Hola!</h1>
-            <p>Contenido interesante</p>
+            <h1>{props.titulo}</h1>
+            <p>{props.contenido}</p>
         </div>
-    );
-    
-};
-
+    )
+}
