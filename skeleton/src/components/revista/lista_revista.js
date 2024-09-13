@@ -17,8 +17,18 @@ export default class ListaRevista extends Component {
             abierto: true
         };
     }
+    alternarEstado = () => {
+        if(this.state.abierto) {
+            this.setState({ datosRevista: [], abierto: true });
+        } else {
+            this.setState({ datosRevista: rawDatosRevista, abierto: true });
+        }
+    };
     limpiarEntradas = () => {
-        this.setState({datosRevista:[]});
+        this.setState({ datosRevista: [], abierto: false });
+    };
+    verAllEntradas = () => {
+        this.setState({ datosRevista: rawDatosRevista, abierto: true });
     }
     render() {
         const entradasRevista = this.state.datosRevista.map(entradaRevista => {
@@ -35,7 +45,9 @@ export default class ListaRevista extends Component {
             <div>
                 <h2>{this.props.encabezado}</h2>
                 {entradasRevista}
-                <button onClick={this.limpiarEntradas}>Limpiar Entradas Revista</button>
+                <button onClick={this.limpiarEntradas}>Limpiar Entradas</button>
+                <button onClick={this.verAllEntradas}>Ver All Entradas</button>
+                <button onClick={this.alternarEstado}>Alternar Estado Entradas</button>
             </div>
         )
 
