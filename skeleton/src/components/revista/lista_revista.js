@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { EntradaRevista } from "./entrada_revista"
 
-const datosRevista = [
+const rawDatosRevista = [
     { titulo: 'Post One', contenido: 'Post contenido', estado: 'draft' },
     { titulo: 'Post two', contenido: 'Post contenido', estado: 'published' },
     { titulo: 'Post three', contenido: 'Post contenido', estado: 'published' },
@@ -13,9 +13,12 @@ export default class ListaRevista extends Component {
     constructor(props) {
         super();
         this.state = {
-            datosRevista: datosRevista,
+            datosRevista: rawDatosRevista,
             isOpen: true
         };
+    }
+    limpiarEntradas = () => {
+        this.setState({datosRevista:[]});
     }
     render() {
         const entradasRevista = this.state.datosRevista.map(entradaRevista => {
@@ -32,6 +35,7 @@ export default class ListaRevista extends Component {
             <div>
                 <h2>{this.props.encabezado}</h2>
                 {entradasRevista}
+                <button onClick={this.limpiarEntradas}>Limpiar Entradas Revista</button>
             </div>
         )
 
