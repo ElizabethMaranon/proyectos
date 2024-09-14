@@ -10,4 +10,5 @@ ReactDOM.render(
     <App />
   </BrowserRouter>,
 
-  document.querySelector('.app-wrapper'));
+  document.querySelector('.app-wrapper')
+);
