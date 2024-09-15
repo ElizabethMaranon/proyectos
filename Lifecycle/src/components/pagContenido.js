@@ -1,7 +1,5 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-// `npm i --save-dev @types/react-router-dom`
-
 import Discussion from './discussion';
 import Normas from './normas';
 import Flujo from './flujo';

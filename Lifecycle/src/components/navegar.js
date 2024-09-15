@@ -11,15 +11,11 @@ export default function() {
         </div>
   
         <div>
-          <NavLink to="/normas">
-            Normas
-          </NavLink>
+          <NavLink to="/normas">Normas</NavLink>
         </div>
   
         <div>
-          <NavLink to="/flujo">
-            Flujo
-          </NavLink>
+          <NavLink to="/flujo">Flujo</NavLink>
         </div>
       </div>
     );

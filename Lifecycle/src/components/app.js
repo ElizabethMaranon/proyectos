@@ -5,7 +5,7 @@ import Navegar from './navegar';
 export default class App extends Component {
   render() {
     return (
-      <div className='app'>
+      <div>
         <h1>DevCamp React Starter</h1>
         <Navegar />
         <PagContenido />
