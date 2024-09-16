@@ -1,8 +1,9 @@
 import React from "react";
-export default function() {
+export default function () {
     return (
         <div>
-            <h3>Este es un elemento del portfolio</h3>
+            <h3>{props.titulo}</h3>  
+            <h4>{props.url}</h4>
         </div>
     )
 }

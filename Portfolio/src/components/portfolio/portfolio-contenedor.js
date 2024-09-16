@@ -1,24 +1,38 @@
-// importar react y componentes
 import React, { Component } from "react";
-// importar PortfolioItems creado
 import PortfolioItem from "./portfolio-item";
 
-// Exportar predeterminada, clase, extender a componentes.
-// render sin argumento
-// Declaración return, parece html pero esl JavaScript(JSX)
-export default class PortfolioContainer extends Component {
+export default class PortfolioContenedor extends Component {
     constructor() {
-        // super() es el puente que conecta un componente de clase secundaria
-        // con su constructor de clase principal, permitir que la clase 
-        // secundaria herede todas las bondades del padre.
         super();
-        console.log("El contenedor portfolio ha sido renderizado");
+        this.state = {
+            tituloPag: "Bienvenido a mi portfolio",
+            datos: [
+                {titulo: "bat"},
+                {titulo: "bi"},
+                {titulo: "hiru"},
+                {titulo: "lau"},
+            ]
+        };
+        this.manejarActPag = this.manejarActPag.bind(this);
+        
+    }
+    portfolioItems() {
+        return this.getSnapshotBeforeUpdate.data.map(item => {
+            return <PortfolioItem titulo={item.titulo} url={"google.com"} />
+        });
+    }
+    manejarActPag() {
+        this.setState({
+            tituloPag: "Algún título más"
+        });
     }
     render() {
         return (
             <div>
-                <h2>Este es el contenedor de portfolio</h2>
-                <PortfolioItem/>
+                <h2>{this.state.tituloPag}</h2>
+                {this.portfolioItems()}
+                <hr />
+                <button onClick={this.manejarActPag}>Cambiar título</button>
             </div>
         );
     }
