@@ -6,7 +6,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <h1>DevCamp React Starter</h1>
+        <h1>MielmaDev</h1>
         <Navegar />
         <PagContenido />
       </div>

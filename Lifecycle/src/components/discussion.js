@@ -45,8 +45,6 @@ export default class Discussion extends Component {
         }, 1000);
 
     }
-
-
     render() {
         const {tituloPag} = this.state;
         return (
