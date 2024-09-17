@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import moment from "moment";
 import PortfolioContenedor from './portfolio/portfolio-contenedor';
-
 export default class App extends Component {
   render() {
     return (
