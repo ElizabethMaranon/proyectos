@@ -22,7 +22,7 @@ export default class PortfolioContenedor extends Component {
     }
     manejarActPag() {
         this.setState({
-            tituloPag: "Algún título más"
+            tituloPag: "El título ha sido cambiado"
         });
     }
     render() {
