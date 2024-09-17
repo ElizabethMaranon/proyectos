@@ -14,10 +14,9 @@ export default class PortfolioContenedor extends Component {
             ]
         };
         this.manejarActPag = this.manejarActPag.bind(this);
-        
     }
     portfolioItems() {
-        return this.getSnapshotBeforeUpdate.data.map(item => {
+        return this.state.datos.map(item => {
             return <PortfolioItem titulo={item.titulo} url={"google.com"} />
         });
     }
