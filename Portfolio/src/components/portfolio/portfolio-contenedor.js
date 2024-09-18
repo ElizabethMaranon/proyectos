@@ -6,6 +6,7 @@ export default class PortfolioContenedor extends Component {
         super();
         this.state = {
             tituloPag: "Bienvenido a mi portfolio",
+            isLoading: false,
             datos: [
                 { titulo: "bat", category: "eComercio" },
                 { titulo: "bi", category:  "Programación" },
@@ -27,12 +28,10 @@ export default class PortfolioContenedor extends Component {
             return <PortfolioItem titulo={item.titulo} url={"google.com"} />
         });
     }
-    // manejarActPag() {
-    //     this.setState({
-    //         tituloPag: "El título ha sido cambiado"
-    //     });
-    // }
     render() {
+        if (this.state.isLoading) {
+            return <div>Cargando</div>;
+          }
         return (
             <div>
                 <h2>{this.state.tituloPag}</h2>
@@ -41,8 +40,6 @@ export default class PortfolioContenedor extends Component {
                 <button onClick={() => this.manejarFiltro("Empresa")}>Empresa</button>
 
                 {this.portfolioItems()}
-                {/* <hr />
-                <button onClick={this.manejarActPag}>Cambiar título</button> */}
             </div>
         );
     }
