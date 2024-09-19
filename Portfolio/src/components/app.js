@@ -4,8 +4,10 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import PortfolioContenedor from './portfolio/portfolio-contenedor';
 import NavegarContenedor from './navegar/navegar-contenedor';
-import Home from './pag/home';
-import Sobre from './pag/sobre';
+import home from './pag/home';
+import about from './pag/about';
+import Blog from './pag/blog';
+import contacto from './pag/contacto';
 
 export default class App extends Component {
   render() {
@@ -15,8 +17,8 @@ export default class App extends Component {
           <div>
         <NavegarContenedor />
         <Switch>
-          <Route exact path="/" Component={Home} />
-          <Route path="/sobre-mi" Component={Sobre} />
+          <Route exact path="/" Component={home} />
+          <Route path="/sobre-mi" Component={about} />
         </Switch>
         </div>
         </Router>

@@ -8,13 +8,23 @@ export default class NavegarContenedor extends Component {
     render() {
         return (
             <div>
-                <NavLink exact to="/">
-                Home
+                <NavLink exact to="/" activeClassName="nav-link-active">
+                    Home
                 </NavLink>
-                <NavLink to="sobre-me">Sobre</NavLink>
+                <NavLink exact to="/about" activeClassName="nav-link-active">
+                    Conóceme
+                </NavLink>
+                <NavLink exact to="/contacto" activeClassName="nav-link-active">
+                    Contacto
+                </NavLink>
+                <NavLink exact to="/blog" activeClassName="nav-link-active">
+                    Blog
+                </NavLink>
+
+
+
+
                 
-                <button>Contacto</button>
-                <button>Blog</button>
                 {false ? <button>Agregar Blog</button> : null}
             </div>
         );
