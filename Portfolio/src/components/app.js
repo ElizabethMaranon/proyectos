@@ -16,7 +16,7 @@ export default class App extends Component {
             <NavegarContenedor />
             <Switch>
               <Route exact path="/" Component={Home} />
-              <Route path="/Sobre" Component={Sobre} />
+              <Route path="/sobre" Component={Sobre} />
             </Switch>
           </div>
         </Router>
