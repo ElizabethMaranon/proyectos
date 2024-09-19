@@ -6,7 +6,7 @@ import PortfolioContenedor from './portfolio/portfolio-contenedor';
 import NavegarContenedor from './navegar/navegar-contenedor';
 import home from './pag/home';
 import about from './pag/about';
-import Blog from './pag/blog';
+import blog from './pag/blog';
 import contacto from './pag/contacto';
 
 export default class App extends Component {
@@ -19,6 +19,8 @@ export default class App extends Component {
         <Switch>
           <Route exact path="/" Component={home} />
           <Route path="/sobre-mi" Component={about} />
+          <Route path="/contacto" Component={contacto} />
+          <Route path="/blog" Component={blog} />
         </Switch>
         </div>
         </Router>
