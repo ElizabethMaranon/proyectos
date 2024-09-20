@@ -18,7 +18,7 @@ export default class App extends Component {
         <NavegarContenedor />
         <Switch>
           <Route exact path="/" Component={home} />
-          <Route path="/sobre-mi" Component={about} />
+          <Route path="/about-me" Component={about} />
           <Route path="/contacto" Component={contacto} />
           <Route path="/blog" Component={blog} />
         </Switch>

@@ -11,7 +11,7 @@ export default class NavegarContenedor extends Component {
                 <NavLink exact to="/" activeClassName="nav-link-active">
                     Home
                 </NavLink>
-                <NavLink exact to="/about" activeClassName="nav-link-active">
+                <NavLink exact to="/about-me" activeClassName="nav-link-active">
                     Conóceme
                 </NavLink>
                 <NavLink exact to="/contacto" activeClassName="nav-link-active">
