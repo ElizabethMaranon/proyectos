@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import moment from "moment";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import PortfolioContenedor from './portfolio/portfolio-contenedor';
 import NavegarContenedor from './navegar/navegar-contenedor';
 import home from './pag/home';
 import about from './pag/about';
@@ -15,18 +14,17 @@ export default class App extends Component {
       <div className='app'>
         <Router>
           <div>
-        <NavegarContenedor />
-        <Switch>
-          <Route exact path="/" Component={home} />
-          <Route path="/about-me" Component={about} />
-          <Route path="/contacto" Component={contacto} />
-          <Route path="/blog" Component={blog} />
-        </Switch>
-        </div>
+            <h1>MielmaDev Portfolio</h1>
+            <div>{moment().format("MMMM Do YYYY, h:mm:ss a")}</div>
+            <NavegarContenedor />
+            <Switch>
+              <Route exact path="/" Component={home} />
+              <Route path="/about-me" Component={about} />
+              <Route path="/contacto" Component={contacto} />
+              <Route path="/blog" Component={blog} />
+            </Switch>
+          </div>
         </Router>
-        <h1>MielmaDev Portfolio</h1>
-        <div>{moment().format("MMMM Do YYYY, h:mm:ss a")}</div>
-        <PortfolioContenedor />
       </div>
     );
   }

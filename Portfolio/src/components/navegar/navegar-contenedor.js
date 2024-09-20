@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
+import { NavLink } from 'react-router-dom';
 
 export default class NavegarContenedor extends Component {
     constructor() {
@@ -12,7 +12,7 @@ export default class NavegarContenedor extends Component {
                     Home
                 </NavLink>
                 <NavLink exact to="/about-me" activeClassName="nav-link-active">
-                    Conóceme
+                    About
                 </NavLink>
                 <NavLink exact to="/contacto" activeClassName="nav-link-active">
                     Contacto
