@@ -2,23 +2,31 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 
 export default class NavCont extends Component {
-  constructor() {
-    super();
-  }
+    constructor() {
+        super();
+    }
 
-  render() {
-    return (
-      <div>
-        <NavLink exact to="/">
-          Home
-        </NavLink>
+    render() {
+        return (
+            <div>
+                <NavLink exact to="/" activeClassName="nav-link-active">
+                    Home
+                </NavLink>
 
-        <NavLink to="/about-me">About</NavLink>
+                <NavLink to="/about-me" activeClassName="nav-link-active">
+                    About
+                </NavLink>
 
-        <button>Contacto</button>
-        <button>Blog</button>
-        {false ? <button>Add Blog</button> : null}
-      </div>
-    );
-  }
+                <NavLink to="/contacto" activeClassName="nav-link-active">
+                    Contacto
+                </NavLink>
+
+                <NavLink to="/blog" activeClassName="nav-link-active">
+                    Blog
+                </NavLink>
+
+                {false ? <button>Add Blog</button> : null}
+            </div>
+        );
+    }
 }
