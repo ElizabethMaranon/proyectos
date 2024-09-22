@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import moment from "moment";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import PortfolioCont from './portfolio/portfolio-Cont';
 import NavCont from './nav/nav-cont';
 import home from './pag/home';
 import about from './pag/about';
@@ -15,6 +14,9 @@ export default class App extends Component {
       <div className='app'>
         <Router>
           <div>
+            <h1>MielmaDev`s Portfolio</h1>
+            <h2>{moment().format('MMMM Do YYYY, h:mm:ss a')}</h2>
+
             <NavCont />
 
             <Switch>
@@ -23,12 +25,9 @@ export default class App extends Component {
               <Route path="/contacto" component={contacto} />
               <Route path="/blog" component={blog} />
             </Switch>
-            </div>
+          </div>
         </Router>
 
-        <h1>MielmaDev`s Portfolio</h1>
-        <h2>{moment().format('MMMM Do YYYY, h:mm:ss a')}</h2>
-        <PortfolioCont />
       </div>
     );
   }
