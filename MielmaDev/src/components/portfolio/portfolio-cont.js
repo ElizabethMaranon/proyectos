@@ -9,14 +9,14 @@ export default class PortfolioCont extends Component {
     this.state = {
       tituloPag: "Bienvenido al portfolio de MielmaDev",
       datos: [
-        { titulo: 1 },
-        { titulo: 2 },
-        { titulo: 3 },
-        { titulo: 4 },
+        { titulo: 1, category: "eCommerce" },
+        { titulo: 2, category: "Programación" },
+        { titulo: 3, category: "Empresa" },
+        { titulo: 4, category: "eCommerce" },
       ]
-
     };
-    this.handlePageTitleUpdate = this.handlePageTitleUpdate.bind(this);
+    
+    this.manejarFiltro = this.manejarFiltro.bind(this);
   }
 
   portfolioItems() {
@@ -25,9 +25,11 @@ export default class PortfolioCont extends Component {
     });
   }
 
-  handlePageTitleUpdate() {
+  manejarFiltro(filtro) {
     this.setState({
-      pageTitle: "Something Else"
+      datos: this.state.datos.filtro(item=> {
+        return item.category === filtro;
+      })
     });
   }
 
@@ -36,11 +38,17 @@ export default class PortfolioCont extends Component {
       <div>
         <h2>{this.state.pageTitle}</h2>
 
+        <button onClick={() => this.handleFilter("eCommerce")}>
+          eCommerce
+        </button>
+        <button onClick={() => this.handleFilter("Scheduling")}>
+          Scheduling
+        </button>
+        <button onClick={() => this.handleFilter("Enterprise")}>
+          Enterprise
+        </button>
+
         {this.portfolioItems()}
-
-        <hr />
-
-        <button onClick={this.handlePageTitleUpdate}>Change Title</button>
       </div>
     );
   }
