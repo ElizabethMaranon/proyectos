@@ -3,19 +3,20 @@ import React, { Component } from "react";
 import PortfolioItem from "./portfolio-item";
 
 export default class PortfolioCont extends Component {
-  constructor(){
+  constructor() {
     super();
 
     this.state = {
-      tituloPag:"Bienvenido al portfolio de MielmaDev",
+      tituloPag: "Bienvenido al portfolio de MielmaDev",
       datos: [
-        {titulo: 1 },
-        {titulo: 2 },
-        {titulo: 3 },
-        {titulo: 4 },
+        { titulo: 1 },
+        { titulo: 2 },
+        { titulo: 3 },
+        { titulo: 4 },
       ]
 
-    }
+    };
+    this.handlePageTitleUpdate = this.handlePageTitleUpdate.bind(this);
   }
 
   portfolioItems() {
@@ -23,13 +24,23 @@ export default class PortfolioCont extends Component {
       return <PortfolioItem titulo={item.titulo} url={"mielmadev.com"} />;
     });
   }
-  
+
+  handlePageTitleUpdate() {
+    this.setState({
+      pageTitle: "Something Else"
+    });
+  }
+
   render() {
     return (
       <div>
-        <h2>{this.state.tituloPag}</h2>
+        <h2>{this.state.pageTitle}</h2>
 
         {this.portfolioItems()}
+
+        <hr />
+
+        <button onClick={this.handlePageTitleUpdate}>Change Title</button>
       </div>
     );
   }
