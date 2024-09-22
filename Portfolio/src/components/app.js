@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import moment from "moment";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
 
 import NavegarContenedor from './navegar/navegar-contenedor';
-import home from './pag/home';
-import about from './pag/about';
-import blog from './pag/blog';
-import contacto from './pag/contacto';
+import Home from './pag/home';
+import About from './pag/about';
+import Blog from './pag/blog';
+import Contacto from './pag/contacto';
 
 export default class App extends Component {
   render() {
@@ -18,10 +18,10 @@ export default class App extends Component {
             <div>{moment().format("MMMM Do YYYY, h:mm:ss a")}</div>
             <NavegarContenedor />
             <Switch>
-              <Route exact path="/" Component={home} />
-              <Route path="/about-me" Component={about} />
-              <Route path="/contacto" Component={contacto} />
-              <Route path="/blog" Component={blog} />
+              <Route exact path="/" Component={Home} />
+              <Route path="/about-me" Component={About} />
+              <Route path="/contacto" Component={Contacto} />
+              <Route path="/blog" Component={Blog} />
             </Switch>
           </div>
         </Router>

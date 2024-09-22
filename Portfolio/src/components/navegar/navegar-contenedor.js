@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
-export default class NavegarContenedor extends Component {
+export default class NavegarComponente extends Component {
     constructor() {
         super();
     }
@@ -11,13 +11,13 @@ export default class NavegarContenedor extends Component {
                 <NavLink exact to="/" activeClassName="nav-link-active">
                     Home
                 </NavLink>
-                <NavLink exact to="/about-me" activeClassName="nav-link-active">
+                <NavLink to="/about-me" activeClassName="nav-link-active">
                     About
                 </NavLink>
-                <NavLink exact to="/contacto" activeClassName="nav-link-active">
+                <NavLink to="/contacto" activeClassName="nav-link-active">
                     Contacto
                 </NavLink>
-                <NavLink exact to="/blog" activeClassName="nav-link-active">
+                <NavLink to="/blog" activeClassName="nav-link-active">
                     Blog
                 </NavLink>
 
