@@ -8,6 +8,7 @@ import about from './pag/about';
 import contacto from './pag/contacto';
 import blog from './pag/blog';
 import portfolioDetalles from './portfolio/portfolio-detalles';
+import noCoincidencia from './pag/no-coincidencia';
 
 export default class App extends Component {
   render() {
@@ -25,6 +26,7 @@ export default class App extends Component {
               <Route path="/contacto" component={contacto} />
               <Route path="/blog" component={blog} />
               <Route path="/portfolio/:slug" component={portfolioDetalles} />
+              <Route component={noCoincidencia} />
             </Switch>
           </div>
         </Router>
