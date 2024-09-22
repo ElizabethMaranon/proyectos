@@ -10,10 +10,14 @@ export default class PortfolioCont extends Component {
       tituloPag: "Bienvenido al portfolio de MielmaDev",
       cargando: false,
       datos: [
-        { titulo: 1, category: "eCommerce" },
-        { titulo: 2, category: "Programación" },
-        { titulo: 3, category: "Empresa" },
-        { titulo: 4, category: "eCommerce" },
+        { titulo: 1, category: "eCommerce", slug: "bat" },
+        { titulo: 2, category: "Programación", slug: "bi" },
+        {
+          titulo: 3,
+          category: "Empresa",
+          slug: "hiru"
+        },
+        { titulo: 4, category: "eCommerce", slug: "lau" },
       ]
     };
 
@@ -30,26 +34,28 @@ export default class PortfolioCont extends Component {
 
   portfolioItems() {
     return this.state.datos.map(item => {
-      return <PortfolioItem titulo={item.titulo} url={"mielmadev.com"} />;
+      return (
+        <PortfolioItem titulo={item.titulo} url={"mielmadev.com"} slug={item.slug} />
+      )
     });
   }
 
   render() {
-    if (this.state.cargando){
+    if (this.state.cargando) {
       return <div>El portfolio se está cargando, un momento por favor</div>
     }
 
     return (
       <div>
-        <h2>{this.state.pageTitle}</h2>
+        <h2>{this.state.tituloPag}</h2>
 
-        <button onClick={() => this.handleFilter("eCommerce")}>
+        <button onClick={() => this.manejarFiltro("eCommerce")}>
           eCommerce
         </button>
-        <button onClick={() => this.handleFilter("Scheduling")}>
+        <button onClick={() => this.manejarFiltro("Scheduling")}>
           Scheduling
         </button>
-        <button onClick={() => this.handleFilter("Enterprise")}>
+        <button onClick={() => this.manejarFiltro("Enterprise")}>
           Enterprise
         </button>
 
@@ -58,3 +64,4 @@ export default class PortfolioCont extends Component {
     );
   }
 }
+
