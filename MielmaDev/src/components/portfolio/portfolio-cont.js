@@ -8,6 +8,7 @@ export default class PortfolioCont extends Component {
 
     this.state = {
       tituloPag: "Bienvenido al portfolio de MielmaDev",
+      cargando: false,
       datos: [
         { titulo: 1, category: "eCommerce" },
         { titulo: 2, category: "Programación" },
@@ -15,8 +16,16 @@ export default class PortfolioCont extends Component {
         { titulo: 4, category: "eCommerce" },
       ]
     };
-    
+
     this.manejarFiltro = this.manejarFiltro.bind(this);
+  }
+
+  manejarFiltro(filtro) {
+    this.setState({
+      datos: this.state.datos.filtro(item => {
+        return item.category === filtro;
+      })
+    });
   }
 
   portfolioItems() {
@@ -25,15 +34,11 @@ export default class PortfolioCont extends Component {
     });
   }
 
-  manejarFiltro(filtro) {
-    this.setState({
-      datos: this.state.datos.filtro(item=> {
-        return item.category === filtro;
-      })
-    });
-  }
-
   render() {
+    if (this.state.cargando){
+      return <div>El portfolio se está cargando, un momento por favor</div>
+    }
+
     return (
       <div>
         <h2>{this.state.pageTitle}</h2>
