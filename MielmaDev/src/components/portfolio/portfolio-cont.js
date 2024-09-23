@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import axios from "axios";
 import PortfolioItem from "./portfolio-item";
 
 export default class PortfolioCont extends Component {
@@ -22,8 +22,8 @@ export default class PortfolioCont extends Component {
     };
 
     this.manejarFiltro = this.manejarFiltro.bind(this);
+    this.getPortfolioItems = this.getPortfolioItems.bind(this);
   }
-
   manejarFiltro(filtro) {
     this.setState({
       datos: this.state.datos.filtro(item => {
@@ -31,7 +31,16 @@ export default class PortfolioCont extends Component {
       })
     });
   }
-
+  getPortfolioItems() {
+    axios
+      .get("https://mielmadev.devcamp.space/portfolio/portfolio_items")
+      .then(response => {
+        console.log("datos de respuesta", response);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
   portfolioItems() {
     return this.state.datos.map(item => {
       return (
@@ -39,16 +48,14 @@ export default class PortfolioCont extends Component {
       )
     });
   }
-
   render() {
     if (this.state.cargando) {
       return <div>El portfolio se está cargando, un momento por favor</div>
     }
-
+    this.getPortfolioItems();
     return (
       <div>
         <h2>{this.state.tituloPag}</h2>
-
         <button onClick={() => this.manejarFiltro("eCommerce")}>
           eCommerce
         </button>
@@ -58,7 +65,6 @@ export default class PortfolioCont extends Component {
         <button onClick={() => this.manejarFiltro("Enterprise")}>
           Enterprise
         </button>
-
         {this.portfolioItems()}
       </div>
     );
