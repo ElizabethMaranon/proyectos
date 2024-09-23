@@ -39,7 +39,14 @@ export default class PortfolioCont extends Component {
 
   portfolioItems() {
     return this.state.datos.map(item => {
-      return <PortfolioItem titulo={item.name} url={item.url} slug={item.id} />
+      return (
+        <PortfolioItem
+          key={item.id}
+          titulo={item.name}
+          url={item.url}
+          slug={item.id}
+        />
+      );
     });
   }
 
@@ -55,7 +62,7 @@ export default class PortfolioCont extends Component {
     return (
       <div>
         <h2>{this.state.tituloPag}</h2>
-        
+
         <button onClick={() => this.manejarFiltro("eCommerce")}>
           eCommerce
         </button>
