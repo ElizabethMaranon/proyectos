@@ -2,14 +2,17 @@ import React from "react";
 import { Link } from 'react-router-dom';
 
 export default function (props) {
+  // Data that we'll need:
+  // - background image: thumb_image_url
+  // - logo
+  // - description: description
+  // - id: id
+
+  const { id, description, thumb_image_url, logo } = props.item;
   return (
     <div>
-      <h3>{props.titulo}</h3>
-      <h4>{props.url}</h4>
-
-      <Link to={`/portfolio/${props.slug}`}>Enlace a slug</Link>
-
+      <div>{description}</div>
+      <Link to={`/portfolio/${id}`}>Link</Link>
     </div>
   );
 }
-
