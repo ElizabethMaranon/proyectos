@@ -39,7 +39,7 @@ export default class PortfolioCont extends Component {
 
   portfolioItems() {
     return this.state.datos.map(item => {
-      console.log("portfolio item", item);
+      debugger;
       return (
         <PortfolioItem
           key={item.id}
