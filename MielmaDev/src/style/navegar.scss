@@ -2,4 +2,24 @@
   display: flex;
   justify-content: space-between;
   padding: 30px;
+
+  .lado-dcho {
+    display: flex;
+  }
+
+  .nav-link-paq {
+    height: 22px; //altura
+    border-bottom: 1px solid transparent;
+    transition: 0.5s ease-in-out;
+
+    a {
+      color: black;
+      text-decoration: none;
+    }
+
+    &:hover {
+      border-bottom: 1px solid black;
+    }
+  }
 }
+
