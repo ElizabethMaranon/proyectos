@@ -12,7 +12,7 @@ import noCoincidencia from './pag/no-coincidencia';
 export default class App extends Component {
    render() {
     return (
-      <div className='app'>
+      <div className='contenedor'>
         <Router>
           <div>
             <NavCont />

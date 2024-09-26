@@ -1,6 +1,10 @@
 body {
     margin: 0px;
     font-family: "Roboto Slab", serif;
-    }
+}
 
-    
+.contenedor {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+

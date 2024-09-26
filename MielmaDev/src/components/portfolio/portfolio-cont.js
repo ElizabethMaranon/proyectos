@@ -66,7 +66,7 @@ export default class PortfolioCont extends Component {
           Enterprise
         </button>
 
-        {this.portfolioItems()}
+        <div className="portfolio-items-paq">{this.portfolioItems()}</div>
       </div>
     );
   }

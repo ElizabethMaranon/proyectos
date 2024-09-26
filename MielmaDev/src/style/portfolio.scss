@@ -1,0 +1,9 @@
+.portfolio-items-paq {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  .portfolio-item-paq {
+    position: relative;
+  }
+}
+
