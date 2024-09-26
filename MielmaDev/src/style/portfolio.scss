@@ -12,6 +12,34 @@
       height: 350px;
       width: 100%;
     }
+
+    .img-tex-paq {
+      position: absolute;
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      text-align: center;
+      padding-left: 100px;
+      padding-right: 100px;
+
+      .subtitulo {
+        transition: 1s ease-in-out;
+        color: transparent;
+      }
+    }
+
+    .img-text-paq:hover .subtitulo {
+      color: $SoftCyan;
+      font-weight: 400;
+    }
+
+    .logo-paq img {
+      width: 50%;
+      margin-bottom: 20px;
+    }
   }
 }
 
