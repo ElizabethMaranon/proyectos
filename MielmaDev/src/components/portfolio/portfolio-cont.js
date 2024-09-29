@@ -3,7 +3,6 @@ import axios from "axios";
 
 import PortfolioItem from "./portfolio-item";
 
-
 export default class PortfolioCont extends Component {
   constructor() {
     super();
@@ -54,21 +53,17 @@ export default class PortfolioCont extends Component {
     }
 
     return (
-      <div>
-        <h2>{this.state.tituloPag}</h2>
-
-        <button onClick={() => this.manejarFiltro("eCommerce")}>
+      <div className="portfolio-items-paq">
+        <button className="btn" onClick={() => this.manejarFiltro("eCommerce")}>
           eCommerce
         </button>
-        <button onClick={() => this.manejarFiltro("Scheduling")}>
+        <button className="btn" onClick={() => this.manejarFiltro("Scheduling")}>
           Scheduling
         </button>
-        <button onClick={() => this.manejarFiltro("Enterprise")}>
+        <button className="btn" onClick={() => this.manejarFiltro("Enterprise")}>
           Enterprise
         </button>
-
-        <div className="portfolio-items-paq">{this.portfolioItems()}</div>
-      </div>
+        {this.portfolioItems()}</div>
     );
   }
 }
