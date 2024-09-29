@@ -63,7 +63,9 @@ export default class PortfolioCont extends Component {
         <button className="btn" onClick={() => this.manejarFiltro("Enterprise")}>
           Enterprise
         </button>
-        {this.portfolioItems()}</div>
+
+        {this.portfolioItems()}
+      </div>
     );
   }
 }
