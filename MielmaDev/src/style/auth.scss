@@ -1,0 +1,16 @@
+.auth-pag-paq {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: calc(100vh - 84px);
+
+  .izq-columna {
+    background-size: cover;
+  }
+
+  .dch-columna {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $SoftBlue;
+  }
+}
