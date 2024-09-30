@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 export default class PortfolioItem extends Component {
   constructor(props) {
@@ -10,11 +10,11 @@ export default class PortfolioItem extends Component {
     };
   }
 
-  manejarMouseEntrada() {
-    this.setState({ portfolioItemClass: "image-borrosa" });
+  handleMouseEnter() {
+    this.setState({ portfolioItemClass: "image-blur" });
   }
 
-  manejarMouseSalida() {
+  handleMouseLeave() {
     this.setState({ portfolioItemClass: "" });
   }
 
@@ -22,25 +22,25 @@ export default class PortfolioItem extends Component {
     const { id, description, thumb_image_url, logo_url } = this.props.item;
     return (
       <div
-        className="portfolio-item-paq"
-        onMouseEnter={() => this.manejarMouseEntrada()}
-        onMouseLeave={() => this.manejarMouseSalida()}
+        className="portfolio-item-wrapper"
+        onMouseEnter={() => this.handleMouseEnter()}
+        onMouseLeave={() => this.handleMouseLeave()}
       >
         <div
           className={
-            "portfolio-img-fondo" + this.state.portfolioItemClass
+            "portfolio-img-background " + this.state.portfolioItemClass
           }
           style={{
             backgroundImage: "url(" + thumb_image_url + ")"
           }}
         />
 
-        <div className="img-text-paq">
-          <div className="logo-paq">
+        <div className="img-text-wrapper">
+          <div className="logo-wrapper">
             <img src={logo_url} />
           </div>
 
-          <div className="subtitulo">{description}</div>
+          <div className="subtitle">{description}</div>
         </div>
       </div>
     );

@@ -1,11 +1,11 @@
-.portfolio-items-paq {
+.portfolio-items-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 
-  .portfolio-item-paq {
+  .portfolio-item-wrapper {
     position: relative;
 
-    .portfolio-img-fondo {
+    .portfolio-img-background {
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -13,7 +13,7 @@
       width: 100%;
     }
 
-    .img-tex-paq {
+    .img-text-wrapper {
       position: absolute;
       top: 0;
       display: flex;
@@ -25,25 +25,25 @@
       padding-left: 100px;
       padding-right: 100px;
 
-      .subtitulo {
+      .subtitle {
         transition: 1s ease-in-out;
         color: transparent;
       }
     }
 
-    .img-text-paq:hover .subtitulo {
-      color: $SoftCyan;
+    .img-text-wrapper:hover .subtitle {
+      color: $teal;
       font-weight: 400;
     }
 
-    .logo-paq img {
+    .logo-wrapper img {
       width: 50%;
       margin-bottom: 20px;
     }
   }
 }
 
-.image-borrosa {
+.image-blur {
   transition: 1s;
   filter: brightness(10%);
 }

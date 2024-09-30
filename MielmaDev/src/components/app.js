@@ -1,35 +1,35 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import NavCont from './nav/nav-cont';
-import about from './pag/about';
-import blog from './pag/blog';
-import contacto from './pag/contacto';
-import home from './pag/home';
-import portfolioDetalles from './portfolio/portfolio-detalles';
-import Auth from './pag/auth';
-import noCoincidencia from './pag/no-coincidencia';
+import NavigationContainer from "./navigation/navigation-container";
+import Home from "./pages/home";
+import About from "./pages/about";
+import Contact from "./pages/contact";
+import Blog from "./pages/blog";
+import PortfolioDetail from "./portfolio/portfolio-detail";
+import Auth from "./pages/auth";
+import NoMatch from "./pages/no-match";
 
 export default class App extends Component {
-   render() {
+  render() {
     return (
-      <div className='contenedor'>
+      <div className="container">
         <Router>
           <div>
-            <NavCont />
+            <NavigationContainer />
 
             <Switch>
-              <Route exact path="/" component={home} />
+              <Route exact path="/" component={Home} />
               <Route path="/auth" component={Auth} />
-              <Route path="/about-me" component={about} />
-              <Route path="/contacto" component={contacto} />
-              <Route path="/blog" component={blog} />
-              <Route 
-              exact 
-              path="/portfolio/:slug" 
-              component={portfolioDetalles} 
+              <Route path="/about-me" component={About} />
+              <Route path="/contact" component={Contact} />
+              <Route path="/blog" component={Blog} />
+              <Route
+                exact
+                path="/portfolio/:slug"
+                component={PortfolioDetail}
               />
-              <Route component={noCoincidencia} />
+              <Route component={NoMatch} />
             </Switch>
           </div>
         </Router>
@@ -37,4 +37,3 @@ export default class App extends Component {
     );
   }
 }
-
