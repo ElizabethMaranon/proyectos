@@ -35,7 +35,7 @@ export default class NavCont extends Component {
           </div>
 
         </div>
-        <div className="lado-dcho">MielmaDev</div>
+        <div className="lado-dch">MielmaDev</div>
       </div>
     );
   }
