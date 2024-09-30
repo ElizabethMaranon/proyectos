@@ -16,10 +16,11 @@
     font-size: 0.9rem;
 
     a {
-      color: $grey;
+      color: $SoftBlue;
       text-decoration: none;
+
       &:hover {
-        color: black;
+        color: $SoftMagenta;
       }
     }
 
@@ -29,7 +30,7 @@
 
     .nav-link-active {
       border-bottom: 1px solid black;
-      color: black;
+      color: $SoftYellow;
     }
   }
 }
