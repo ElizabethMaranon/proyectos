@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Login from "../auth/login";
 import loginImg from "../../assets/images/auth/login.jpg"
 
 export default class Auth extends Component {
@@ -12,7 +13,7 @@ export default class Auth extends Component {
           }}
         />
         <div className="dch-columna">
-          <h1>Login component goes here...</h1>
+          <Login />
         </div>
       </div>
     );
