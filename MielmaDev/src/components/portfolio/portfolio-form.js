@@ -96,10 +96,11 @@ export default class PortfolioForm extends Component {
               <option value="eCommerce">eCommerce</option>
               <option value="Scheduling">Scheduling</option>
               <option value="Enterprise">Enterprise</option>
-            </select>          </div>
+            </select>
+          </div>
 
           <div>
-            <input
+            <textarea
               type="text"
               name="description"
               placeholder="Description"
