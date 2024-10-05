@@ -170,7 +170,7 @@ export default class PortfolioForm extends Component {
               eventHandlers={this.handleThumbDrop()}
             />
 
-<DropzoneComponent
+            <DropzoneComponent
               config={this.componentConfig()}
               djsConfig={this.djsConfig()}
               eventHandlers={this.handleBannerDrop()}
