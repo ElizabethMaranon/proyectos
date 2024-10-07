@@ -12,21 +12,21 @@ export default class PortfolioManager extends Component {
       portfolioItems: [],
       portfolioToEdit: {}
     };
-
-    this.handleSuccessfulFormSubmission = this.handleSuccessfulFormSubmission.bind(
-      this
-    );
+    // Vincular
+    this.handleNewFormSubmission = this.handleNewFormSubmission.bind(this);
+    this.handleEditFormSubmission = this.handleEditFormSubmission.bind(this);
     this.handleFormSubmissionError = this.handleFormSubmissionError.bind(this);
     this.handleDeleteClick = this.handleDeleteClick.bind(this);
     this.handleEditClick = this.handleEditClick.bind(this);
-    this.clearPortfolioToEdit = this.clearPortfolioToEdit.bind(this);// Función borrar cartera para editar
+    this.clearPortfolioToEdit = this.clearPortfolioToEdit.bind(this);
   }
 
-  clearPortfolioToEdit() { // Crear para poder acceder 
-    this.setState({ 
-      portfolioToEdit: {} 
-    }); 
-  } 
+  clearPortfolioToEdit() {
+    this.setState({
+      portfolioToEdit: {}
+    });
+  }
+ 
 
   handleEditClick(portfolioItem) {
     this.setState({
@@ -54,7 +54,11 @@ export default class PortfolioManager extends Component {
       });
   }
 
-  handleSuccessfulFormSubmission(portfolioItem) {
+  handleEditFormSubmission() {
+    this.getPortfolioItems();
+  }
+
+  handleNewFormSubmission(portfolioItem) {// Cambiar nombre función
     this.setState({
       portfolioItems: [portfolioItem].concat(this.state.portfolioItems)
     });
@@ -90,11 +94,12 @@ export default class PortfolioManager extends Component {
     return (
       <div className="portfolio-manager-wrapper">
         <div className="left-column">
-          <PortfolioForm
-            handleSuccessfulFormSubmission={this.handleSuccessfulFormSubmission}
-            handleFormSubmissionError={this.handleFormSubmissionError}
-            clearPortfolioToEdit={this.clearPortfolioToEdit}
-            portfolioToEdit={this.state.portfolioToEdit}
+          <PortfolioForm // Pasar como accesorio
+            handleNewFormSubmission={this.handleNewFormSubmission} // Nuevo registro
+            handleEditFormSubmission={this.handleEditFormSubmission} // Editar registro
+            handleFormSubmissionError={this.handleFormSubmissionError} // Error
+            clearPortfolioToEdit={this.clearPortfolioToEdit} // limpiar formulario
+            portfolioToEdit={this.state.portfolioToEdit} // estado creación registro
           />
         </div>
 

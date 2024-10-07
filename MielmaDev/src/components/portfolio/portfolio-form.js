@@ -136,8 +136,12 @@ export default class PortfolioForm extends Component {
       data: this.buildForm(), // Pasar datos
       withCredentials: true
     })
-      .then(response => {
-        this.props.handleSuccessfulFormSubmission(response.data.portfolio_item);
+      .then(response => {// Cuando llamar al proceso
+        if (this.state.editMode) { // si el estado es editar
+          this.props.handleEditFormSubmission(); // editar fomilario
+        } else { // sino
+          this.props.handleNewFormSubmission(response.data.portfolio_item); // crear nuevo registro
+        }
 
         this.setState({
           name: "",
