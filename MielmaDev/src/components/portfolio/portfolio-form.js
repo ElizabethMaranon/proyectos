@@ -61,7 +61,10 @@ export default class PortfolioForm extends Component {
         url: url || "",
         editMode: true,
         apiUrl: `https://mielmadev.devcamp.space/portfolio/portfolio_items/${id}`,// Url API
-        apiAction: "patch" // Predeterminado, si editamos, se activará
+        apiAction: "patch", // Predeterminado, si editamos, se activará
+        thumb_image: thumb_image_url || "",// Predeterminado, si editamos, se activará
+        banner_image: banner_image_url || "",// Predeterminado, si editamos, se activará
+        logo: logo_url || ""// Predeterminado, si editamos, se activará
       });
     }
   }
@@ -138,7 +141,7 @@ export default class PortfolioForm extends Component {
     })
       .then(response => {// Cuando llamar al proceso
         if (this.state.editMode) { // si el estado es editar
-          this.props.handleEditFormSubmission(); // editar fomilario
+          this.props.handleEditFormSubmission(); // editar formulario
         } else { // sino
           this.props.handleNewFormSubmission(response.data.portfolio_item); // crear nuevo registro
         }
@@ -151,7 +154,10 @@ export default class PortfolioForm extends Component {
           url: "",
           thumb_image: "",
           banner_image: "",
-          logo: ""
+          logo: "",
+          editMode: false,
+          apiUrl: "https://mielmadev.devcamp.space/portfolio/portfolio_items",
+          apiAction: "post"
         });
 
         [this.thumbRef, this.bannerRef, this.logoRef].forEach(ref => {
@@ -218,15 +224,18 @@ export default class PortfolioForm extends Component {
         </div>
 
         <div className="image-uploaders">
-          <DropzoneComponent
-            ref={this.thumbRef}
-            config={this.componentConfig()}
-            djsConfig={this.djsConfig()}
-            eventHandlers={this.handleThumbDrop()}
-          >
-            <div className="dz-message">Thumbnail</div>
-          </DropzoneComponent>
-
+          {this.state.thumb_image && this.state.editMode ? ( // agregar operador ternario
+            <img src={this.state.thumb_image} /> // Mostrar thumb_image
+          ) : (
+            <DropzoneComponent  // Aplicable a thumb
+              ref={this.thumbRef}
+              config={this.componentConfig()}
+              djsConfig={this.djsConfig()}
+              eventHandlers={this.handleThumbDrop()}
+            >
+              <div className="dz-message">Thumbnail</div>
+            </DropzoneComponent>
+          )}
           <DropzoneComponent
             ref={this.bannerRef}
             config={this.componentConfig()}
@@ -235,19 +244,18 @@ export default class PortfolioForm extends Component {
           >
             <div className="dz-message">Banner</div>
           </DropzoneComponent>
-
           <DropzoneComponent
             ref={this.logoRef}
             config={this.componentConfig()}
             djsConfig={this.djsConfig()}
             eventHandlers={this.handleLogoDrop()}
-            >
+          >
             <div className="dz-message">Logo</div>
           </DropzoneComponent>
         </div>
 
         <div>
-        <button className="btn" type="submit">
+          <button className="btn" type="submit">
             Save
           </button>
         </div>
