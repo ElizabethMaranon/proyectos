@@ -224,8 +224,10 @@ export default class PortfolioForm extends Component {
         </div>
 
         <div className="image-uploaders">
-          {this.state.thumb_image && this.state.editMode ? ( // agregar operador ternario
-            <img src={this.state.thumb_image} /> // Mostrar thumb_image
+          {this.state.thumb_image && this.state.editMode ? ( // Agregar operador ternario y ClassName
+            <div className="portfolio-manager-image-wrapper"> 
+            <img src={this.state.thumb_image} /> 
+            </div>// Mostrar thumb_image
           ) : (
             <DropzoneComponent  // Aplicable a thumb
               ref={this.thumbRef}
@@ -236,22 +238,37 @@ export default class PortfolioForm extends Component {
               <div className="dz-message">Thumbnail</div>
             </DropzoneComponent>
           )}
-          <DropzoneComponent
-            ref={this.bannerRef}
-            config={this.componentConfig()}
-            djsConfig={this.djsConfig()}
-            eventHandlers={this.handleBannerDrop()}
-          >
-            <div className="dz-message">Banner</div>
-          </DropzoneComponent>
-          <DropzoneComponent
-            ref={this.logoRef}
-            config={this.componentConfig()}
-            djsConfig={this.djsConfig()}
-            eventHandlers={this.handleLogoDrop()}
-          >
-            <div className="dz-message">Logo</div>
-          </DropzoneComponent>
+          
+          {this.state.banner_image && this.state.editMode ? ( // Agregar operador ternario y ClassName
+            <div className="portfolio-manager-image-wrapper">
+              <img src={this.state.banner_image} /> 
+            </div>// Mostrar banner_image
+          ) : (
+            <DropzoneComponent
+              ref={this.bannerRef}
+              config={this.componentConfig()}
+              djsConfig={this.djsConfig()}
+              eventHandlers={this.handleBannerDrop()}
+            >
+              <div className="dz-message">Banner</div>
+            </DropzoneComponent>
+          )}
+          
+          {this.state.logo && this.state.editMode ? (// Agregar operador ternario y ClassName
+            <div className="portfolio-manager-image-wrapper">  
+              <img src={this.state.logo} /> 
+            </div>// Mostrar logo
+          ) : (
+            <DropzoneComponent
+              ref={this.logoRef}
+              config={this.componentConfig()}
+              djsConfig={this.djsConfig()}
+              eventHandlers={this.handleLogoDrop()}
+            >
+              <div className="dz-message">Logo</div>
+            </DropzoneComponent>
+          )}
+
         </div>
 
         <div>

@@ -4,11 +4,22 @@
   padding: 42px;
 
   @include input-element();
+
   input {
     margin-bottom: 0px;
   }
+
   .image-uploaders {
     @include base-grid();
     grid-template-columns: 200px 200px 200px;
+
+    .portfolio-manager-image-wrapper { // Agregar estilo
+      img {
+        width: 100%; // Ancho
+        height: 120px; // Alto
+        object-fit: cover; // Ajustar escala cubriendo contenedor
+        border-radius: 5px; // Redondear las esquinas
+      }
+    }
   }
 }
