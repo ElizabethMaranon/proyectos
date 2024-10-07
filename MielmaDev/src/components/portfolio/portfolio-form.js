@@ -267,8 +267,8 @@ export default class PortfolioForm extends Component {
             <div className="portfolio-manager-image-wrapper">
               <img src={this.state.banner_image_url} />{/*Mostrar banner_image */}
 
-              <div className="image-removal-link"> {/*ClassName */}
-                <a onClick={() => this.deleteImage("banner_image_url")}> {/*OnClick Event*/}
+              <div className="image-removal-link">{/*ClassName */}
+                <a onClick={() => this.deleteImage("banner_image")}>{/*OnClick Event*/}
                   Remove file
                 </a>
               </div>
