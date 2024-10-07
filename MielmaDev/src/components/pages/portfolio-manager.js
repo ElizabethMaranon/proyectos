@@ -19,14 +19,14 @@ export default class PortfolioManager extends Component {
     this.handleFormSubmissionError = this.handleFormSubmissionError.bind(this);
     this.handleDeleteClick = this.handleDeleteClick.bind(this);
     this.handleEditClick = this.handleEditClick.bind(this);
-    this.clearPortfolioToEdit = this.clearPortfolioToEdit.bind(this);
+    this.clearPortfolioToEdit = this.clearPortfolioToEdit.bind(this);// Función borrar cartera para editar
   }
 
-  clearPortfolioToEdit() {
-    this.setState({
-      portfolioToEdit: {}
-    });
-  }
+  clearPortfolioToEdit() { // Crear para poder acceder 
+    this.setState({ 
+      portfolioToEdit: {} 
+    }); 
+  } 
 
   handleEditClick(portfolioItem) {
     this.setState({

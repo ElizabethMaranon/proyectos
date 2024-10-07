@@ -33,9 +33,9 @@ export default class PortfolioForm extends Component {
     this.logoRef = React.createRef();
   }
 
-  componentDidUpdate() {
-    if (Object.keys(this.props.portfolioToEdit).length > 0) {
-      const {
+  componentDidUpdate() { // Componente actualizado
+    if (Object.keys(this.props.portfolioToEdit).length > 0) { // Condicional si tiene claves
+      const { // Deconstrucción para extraer datos, tomar accesorios y dividir elemento.
         id,
         name,
         description,
@@ -45,13 +45,13 @@ export default class PortfolioForm extends Component {
         thumb_image_url,
         banner_image_url,
         logo_url
-      } = this.props.portfolioToEdit;
+      } = this.props.portfolioToEdit; // tomar elemento y almacenar en variable
       
       this.props.clearPortfolioToEdit();
       
-      this.setState({
+      this.setState({ // llamar y completar estado
         id: id,
-        name: name || "",
+        name: name || "", // si no se especifica, tomará la "string"
         description: description || "",
         category: category || "eCommerce",
         position: position || "",
