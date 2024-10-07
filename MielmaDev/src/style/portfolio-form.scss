@@ -13,12 +13,25 @@
     @include base-grid();
     grid-template-columns: 200px 200px 200px;
 
-    .portfolio-manager-image-wrapper { // Agregar estilo
+    .portfolio-manager-image-wrapper {
+
+      // Agregar estilo
       img {
         width: 100%; // Ancho
         height: 120px; // Alto
         object-fit: cover; // Ajustar escala cubriendo contenedor
         border-radius: 5px; // Redondear las esquinas
+      }
+
+      .image-removal-link {
+        display: flex;
+        justify-content: center;
+
+        a {
+          font-weight: 900;
+          color: $warning;
+          cursor: pointer; // Cuando el mouse está encima
+        }
       }
     }
   }

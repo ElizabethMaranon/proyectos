@@ -22,7 +22,7 @@ export default class PortfolioForm extends Component {
       apiUrl: "https://mielmadev.devcamp.space/portfolio/portfolio_items", // Url API
       apiAction: "post" // Predeterminado, si editamos, se activará
     };
-
+    // Vincular
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.componentConfig = this.componentConfig.bind(this);
@@ -30,10 +30,15 @@ export default class PortfolioForm extends Component {
     this.handleThumbDrop = this.handleThumbDrop.bind(this);
     this.handleBannerDrop = this.handleBannerDrop.bind(this);
     this.handleLogoDrop = this.handleLogoDrop.bind(this);
+    this.deleteImage = this.deleteImage.bind(this); // vincular
 
     this.thumbRef = React.createRef();
     this.bannerRef = React.createRef();
     this.logoRef = React.createRef();
+  }
+
+  deleteImage(imageType) { // Crear función eliminación
+    console.log("deleteImage", imageType); // console.log para pruebas
   }
 
   componentDidUpdate() { // Componente actualizado
@@ -49,9 +54,9 @@ export default class PortfolioForm extends Component {
         banner_image_url,
         logo_url
       } = this.props.portfolioToEdit; // tomar elemento y almacenar en variable
-      
+
       this.props.clearPortfolioToEdit();
-      
+
       this.setState({ // llamar y completar estado
         id: id,
         name: name || "", // si no se especifica, tomará la "string"
@@ -133,7 +138,7 @@ export default class PortfolioForm extends Component {
   }
 
   handleSubmit(event) {
-    axios({ 
+    axios({
       method: this.state.apiAction,// método si no hay registro, publicar, sino, actualizar
       url: this.state.apiUrl, // actualizar la url
       data: this.buildForm(), // Pasar datos
@@ -225,9 +230,15 @@ export default class PortfolioForm extends Component {
 
         <div className="image-uploaders">
           {this.state.thumb_image && this.state.editMode ? ( // Agregar operador ternario y ClassName
-            <div className="portfolio-manager-image-wrapper"> 
-            <img src={this.state.thumb_image} /> 
-            </div>// Mostrar thumb_image
+            <div className="portfolio-manager-image-wrapper">
+              <img src={this.state.thumb_image} />
+
+              <div className="image-removal-link">{/* ClassName*/}
+                <a onClick={() => this.deleteImage("thumb_image")}>{/*OnClick Event*/}
+                  Remove file
+                </a>
+              </div>
+            </div>
           ) : (
             <DropzoneComponent  // Aplicable a thumb
               ref={this.thumbRef}
@@ -238,11 +249,17 @@ export default class PortfolioForm extends Component {
               <div className="dz-message">Thumbnail</div>
             </DropzoneComponent>
           )}
-          
+
           {this.state.banner_image && this.state.editMode ? ( // Agregar operador ternario y ClassName
             <div className="portfolio-manager-image-wrapper">
-              <img src={this.state.banner_image} /> 
-            </div>// Mostrar banner_image
+              <img src={this.state.banner_image} />{/*Mostrar banner_image */}
+
+              <div className="image-removal-link"> {/*ClassName */}
+                <a onClick={() => this.deleteImage("banner_image")}> {/*OnClick Event*/}
+                  Remove file
+                </a>
+              </div>
+            </div>
           ) : (
             <DropzoneComponent
               ref={this.bannerRef}
@@ -253,11 +270,15 @@ export default class PortfolioForm extends Component {
               <div className="dz-message">Banner</div>
             </DropzoneComponent>
           )}
-          
+
           {this.state.logo && this.state.editMode ? (// Agregar operador ternario y ClassName
-            <div className="portfolio-manager-image-wrapper">  
+            <div className="portfolio-manager-image-wrapper">{/*ClassName */}
               <img src={this.state.logo} /> 
-            </div>// Mostrar logo
+
+              <div className="image-removal-link">{/*ClassName */}
+                <a onClick={() => this.deleteImage("logo")}>Remove file</a>{/*OnClick Event*/}
+              </div>
+            </div>
           ) : (
             <DropzoneComponent
               ref={this.logoRef}
