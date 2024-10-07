@@ -67,9 +67,9 @@ export default class PortfolioForm extends Component {
         editMode: true,
         apiUrl: `https://mielmadev.devcamp.space/portfolio/portfolio_items/${id}`,// Url API
         apiAction: "patch", // Predeterminado, si editamos, se activará
-        thumb_image: thumb_image_url || "",// Predeterminado, si editamos, se activará
-        banner_image: banner_image_url || "",// Predeterminado, si editamos, se activará
-        logo: logo_url || ""// Predeterminado, si editamos, se activará
+        thumb_image_url: thumb_image_url || "",// Predeterminado, si editamos, se activará
+        banner_image_url: banner_image_url || "",// Predeterminado, si editamos, se activará
+        logo_url: logo_url || ""// Predeterminado, si editamos, se activará
       });
     }
   }
@@ -229,9 +229,9 @@ export default class PortfolioForm extends Component {
         </div>
 
         <div className="image-uploaders">
-          {this.state.thumb_image && this.state.editMode ? ( // Agregar operador ternario y ClassName
+          {this.state.thumb_image_url && this.state.editMode ? ( // Agregar operador ternario y ClassName
             <div className="portfolio-manager-image-wrapper">
-              <img src={this.state.thumb_image} />
+              <img src={this.state.thumb_image_url} />
 
               <div className="image-removal-link">{/* ClassName*/}
                 <a onClick={() => this.deleteImage("thumb_image")}>{/*OnClick Event*/}
@@ -250,12 +250,12 @@ export default class PortfolioForm extends Component {
             </DropzoneComponent>
           )}
 
-          {this.state.banner_image && this.state.editMode ? ( // Agregar operador ternario y ClassName
+          {this.state.banner_image_url && this.state.editMode ? ( // Agregar operador ternario y ClassName
             <div className="portfolio-manager-image-wrapper">
-              <img src={this.state.banner_image} />{/*Mostrar banner_image */}
+              <img src={this.state.banner_image_url} />{/*Mostrar banner_image */}
 
               <div className="image-removal-link"> {/*ClassName */}
-                <a onClick={() => this.deleteImage("banner_image")}> {/*OnClick Event*/}
+                <a onClick={() => this.deleteImage("banner_image_url")}> {/*OnClick Event*/}
                   Remove file
                 </a>
               </div>
@@ -271,9 +271,9 @@ export default class PortfolioForm extends Component {
             </DropzoneComponent>
           )}
 
-          {this.state.logo && this.state.editMode ? (// Agregar operador ternario y ClassName
+          {this.state.logo_url && this.state.editMode ? (// Agregar operador ternario y ClassName
             <div className="portfolio-manager-image-wrapper">{/*ClassName */}
-              <img src={this.state.logo} /> 
+              <img src={this.state.logo_url} /> 
 
               <div className="image-removal-link">{/*ClassName */}
                 <a onClick={() => this.deleteImage("logo")}>Remove file</a>{/*OnClick Event*/}
