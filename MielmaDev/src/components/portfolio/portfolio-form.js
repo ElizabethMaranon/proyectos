@@ -17,7 +17,10 @@ export default class PortfolioForm extends Component {
       url: "",
       thumb_image: "",
       banner_image: "",
-      logo: ""
+      logo: "",
+      editMode: false, // Todavía no editable
+      apiUrl: "https://mielmadev.devcamp.space/portfolio/portfolio_items", // Url API
+      apiAction: "post" // Predeterminado, si editamos, se activará
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -55,10 +58,14 @@ export default class PortfolioForm extends Component {
         description: description || "",
         category: category || "eCommerce",
         position: position || "",
-        url: url || ""
+        url: url || "",
+        editMode: true,
+        apiUrl: `https://mielmadev.devcamp.space/portfolio/portfolio_items/${id}`,// Url API
+        apiAction: "patch" // Predeterminado, si editamos, se activará
       });
     }
   }
+
   handleThumbDrop() {
     return {
       addedfile: file => this.setState({ thumb_image: file })
@@ -123,12 +130,12 @@ export default class PortfolioForm extends Component {
   }
 
   handleSubmit(event) {
-    axios
-      .post(
-        "https://mielmadev.devcamp.space/portfolio/portfolio_items",
-        this.buildForm(),
-        { withCredentials: true }
-      )
+    axios({ 
+      method: this.state.apiAction,// método si no hay registro, publicar, sino, actualizar
+      url: this.state.apiUrl, // actualizar la url
+      data: this.buildForm(), // Pasar datos
+      withCredentials: true
+    })
       .then(response => {
         this.props.handleSuccessfulFormSubmission(response.data.portfolio_item);
 
