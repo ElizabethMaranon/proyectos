@@ -18,7 +18,7 @@
       top: 0;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: initial;
       align-items: center; // alineación elementos centrada
       height: 100%; // alto
       text-align: center;
@@ -36,9 +36,17 @@
       font-weight: 400;
     }
 
-    .logo-wrapper img {
-      width: 50%; // ancho
-      margin-bottom: 20px;
+
+    .logo-wrapper img{
+      width: 100%; // ancho
+      height: 200%;
+      position: cover;
+      filter: opacity(0%);
+    }
+    .logo-wrapper:hover img{
+      transition: 1s ease-in-out;
+      filter: opacity(100%);
+      height: 350px;
     }
   }
 }

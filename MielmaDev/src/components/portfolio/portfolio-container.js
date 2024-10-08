@@ -43,7 +43,7 @@ export default class PortfolioContainer extends Component {
     });
   }
 
-  componentDidMount() {
+  componentDidMount() { // componentWillMount obsoleto en breve
     this.getPortfolioItems();
   }
 
