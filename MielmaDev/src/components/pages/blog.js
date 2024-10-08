@@ -1,6 +1,7 @@
 import React, { Component } from "react"; // importar componente react
 import { Link } from "react-router-dom";
 import axios from "axios"; // Poder conectar con API
+import BlogItem from "../blog/blog-item"; // importar blog-item.js
 
 class Blog extends Component { // Agregar Class
   constructor() { // Obligatorio Constructor
@@ -34,7 +35,7 @@ class Blog extends Component { // Agregar Class
 
   render() { // Obligatorio class component 
     const blogRecords = this.state.blogItems.map(blogItem => { // Crear variable almacenará registros blog. Mapear(iterar) devuelve matriz
-      return <h1>{blogItem.title}</h1>; // Return obligatorio con map
+      return <BlogItem key={blogItem.id} blogItem={blogItem} />; // Devolver con clave única
     });
     return <div>{blogRecords}</div>; // llamar 
   }
