@@ -33,15 +33,10 @@ class Blog extends Component { // Agregar Class
   }
 
   render() { // Obligatorio class component 
-    return ( // Devuelve
-      <div>
-        <h2>Blog</h2>
-
-        <div>
-          <Link to="/about-me">Read more about myself</Link> {/*Enlace insertado*/}
-        </div>
-      </div>
-    );
+    const blogRecords = this.state.blogItems.map(blogItem => { // Crear variable almacenará registros blog. Mapear(iterar) devuelve matriz
+      return <h1>{blogItem.title}</h1>; // Return obligatorio con map
+    });
+    return <div>{blogRecords}</div>; // llamar 
   }
 }
 
