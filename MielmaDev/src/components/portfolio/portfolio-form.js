@@ -12,7 +12,7 @@ export default class PortfolioForm extends Component {
     this.state = {
       name: "",
       description: "",
-      category: "Marvel",
+      category: "eCommerce",
       position: "",
       url: "",
       thumb_image: "",
@@ -74,7 +74,7 @@ export default class PortfolioForm extends Component {
         id: id,
         name: name || "", // si no se especifica, tomará la "string"
         description: description || "",
-        category: category || "Marvel",
+        category: category || "eCommerce",
         position: position || "",
         url: url || "",
         editMode: true,
@@ -167,7 +167,7 @@ export default class PortfolioForm extends Component {
         this.setState({
           name: "",
           description: "",
-          category: "Marvel",
+          category: "eCommerce",
           position: "",
           url: "",
           thumb_image: "",
@@ -225,9 +225,9 @@ export default class PortfolioForm extends Component {
             onChange={this.handleChange}
             className="select-element"
           >
-            <option value="Marvel">Marvel</option>
-            <option value="Dc">Dc</option>
-            <option value="Otras">Otras</option>
+            <option value="eCommerce">eCommerce</option>
+            <option value="Scheduling">Scheduling</option>
+            <option value="Enterprise">Enterprise</option>
           </select>
         </div>
 
@@ -286,7 +286,7 @@ export default class PortfolioForm extends Component {
 
           {this.state.logo_url && this.state.editMode ? (// Agregar operador ternario y ClassName
             <div className="portfolio-manager-image-wrapper">{/*ClassName */}
-              <img src={this.state.logo_url} />
+              <img src={this.state.logo_url} /> 
 
               <div className="image-removal-link">{/*ClassName */}
                 <a onClick={() => this.deleteImage("logo")}>Remove file</a>{/*OnClick Event*/}
