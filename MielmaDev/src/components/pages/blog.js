@@ -10,6 +10,7 @@ class Blog extends Component { // Agregar Class
     this.state = { // Crear instancia
       blogItems: [] // lMatriz vacía para poblar después
     };
+
     this.getBlogItems = this.getBlogItems.bind(this); // Vincular función
   }
 
@@ -37,7 +38,7 @@ class Blog extends Component { // Agregar Class
     const blogRecords = this.state.blogItems.map(blogItem => { // Crear variable almacenará registros blog. Mapear(iterar) devuelve matriz
       return <BlogItem key={blogItem.id} blogItem={blogItem} />; // Devolver con clave única
     });
-
+    
     return (
       <div className="blog-container">
         <div className="content-container">{blogRecords}</div>
