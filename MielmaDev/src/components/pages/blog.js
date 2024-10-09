@@ -1,5 +1,6 @@
 import React, { Component } from "react"; // importar componente react
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // importar iconos
 import axios from "axios"; // Poder conectar con API
 import BlogItem from "../blog/blog-item"; // importar blog-item.js
 
@@ -10,7 +11,8 @@ class Blog extends Component { // Agregar Class
     this.state = { // Crear instancia
       blogItems: [], // lMatriz vacía para poblar después
       totalCount: 0, // cont total pred 0 (para cuando tengamos el constructor, queremos que se cargue antes de que lleguen nuestros registros que se anulará tan pronto como recibamos esa actualización)
-      currentPage: 0 // página actual pred 0 (para cuando tengamos el constructor, queremos que se cargue antes de que lleguen nuestros registros que se anulará tan pronto como recibamos esa actualización)
+      currentPage: 0, // página actual pred 0 (para cuando tengamos el constructor, queremos que se cargue antes de que lleguen nuestros registros que se anulará tan pronto como recibamos esa actualización)
+      // isLoading: true // llamar
     };
 
     this.getBlogItems = this.getBlogItems.bind(this); // Vincular función
@@ -34,14 +36,14 @@ class Blog extends Component { // Agregar Class
     });
 
     axios // Método de obtención
-
       .get("https://mielmadev.devcamp.space/portfolio/portfolio_blogs", { // get url endpoint (es el subdominio, en este caso devcamp space de mielmadev)
         withCredentials: true //indicador credenciales obligatorio, booleano
       })
       .then(response => { // Cuando se resuelva la promesa
         this.setState({ // ir API, recuperar datos
           blogItems: response.data.portfolio_blogs, // cuando llegue la respuesta, llamar a this.setState, y dentro de los pares, y luego un objeto
-          totalCount: response.data.meta.total_records // Asi lo llama la API
+          totalCount: response.data.meta.total_records, // Asi lo llama la API
+          isLoading: false // para que salga animación de cargando si es true
         });
       })
       .catch(error => { // detector de error
@@ -61,6 +63,12 @@ class Blog extends Component { // Agregar Class
     return (
       <div className="blog-container">
         <div className="content-container">{blogRecords}</div>
+
+        {this.state.isLoading ? ( // operador ternario
+          <div className="content-loader">{/*si esta cargando */}
+            <FontAwesomeIcon icon="spinner" spin />
+          </div>
+        ) : null} {/* si esta cargando aparece icono en movimiento, de lo contrario no aparece nada */}
       </div>
     );
   }
