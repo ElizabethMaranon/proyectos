@@ -18,7 +18,7 @@
       top: 0;
       display: flex;
       flex-direction: column;
-      justify-content: initial;
+      justify-content: center;
       align-items: center; // alineación elementos centrada
       height: 100%; // alto
       text-align: center;
@@ -26,7 +26,7 @@
       // padding-right: 100px;
 
       .subtitle {
-        transition: 1s ease-in-out; // Salida y entrada gradual
+        transition: 2s ease-in-out; // Salida y entrada gradual
         color: transparent;
       }
     }
@@ -37,16 +37,17 @@
     }
 
 
-    .logo-wrapper img{
+    .logo-wrapper img {
       width: 100%; // ancho
-      height: 200%;
+
       position: cover;
+      transition: 2s ease-in-out;
       filter: opacity(0%);
     }
-    .logo-wrapper:hover img{
-      transition: 1s ease-in-out;
+
+    .img-text-wrapper:hover .logo-wrapper img {
+      transition: 2s ease-in-out;
       filter: opacity(100%);
-      height: 350px;
     }
   }
 }

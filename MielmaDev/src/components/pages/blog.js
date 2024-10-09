@@ -37,7 +37,12 @@ class Blog extends Component { // Agregar Class
     const blogRecords = this.state.blogItems.map(blogItem => { // Crear variable almacenará registros blog. Mapear(iterar) devuelve matriz
       return <BlogItem key={blogItem.id} blogItem={blogItem} />; // Devolver con clave única
     });
-    return <div>{blogRecords}</div>; // llamar 
+
+    return (
+      <div className="blog-container">
+        <div className="content-container">{blogRecords}</div>
+      </div>
+    );
   }
 }
 

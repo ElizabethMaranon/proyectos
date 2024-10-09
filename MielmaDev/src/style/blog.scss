@@ -6,9 +6,23 @@
   .content-container { // repartir columnas con ancho definido
     display: flex;
     flex-direction: column;
-    width: 800px; // ancho
+    width: auto; // ancho
 
-    .featured-image-wrapper { 
+    a { // enlaces
+      text-decoration: none; // sin decoración, elimina el subrayado predeterminado de los enlaces
+      color: $teal; // color = softCyan
+      transition: 0.5s ease-in-out; // Tiempo de retardo en hacer transición con hover y viceversa
+
+      &:hover { // al pasar mouse 
+        color: $dark-teal; // color = Dark cyan
+      }
+    }
+
+    h1 { // estilo de los h1
+      font-size: 1.5rem; // em: actual, rem: matriz
+    }
+
+    .featured-image-wrapper {
       img {
         margin: 15px 0px;
         width: 100%;
