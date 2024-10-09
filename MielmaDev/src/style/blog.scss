@@ -1,0 +1,21 @@
+.blog-container { // repartir en columnas con items centrados
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .content-container { // repartir columnas con ancho definido
+    display: flex;
+    flex-direction: column;
+    width: 800px; // ancho
+
+    .featured-image-wrapper { 
+      img {
+        margin: 15px 0px;
+        width: 100%;
+        height: 350px;
+        border-radius: 5px; // redondeo esquinas
+        object-fit: cover; //  ajuste-objeto: a escala contenedor cubierto
+      }
+    }
+  }
+}

@@ -38,11 +38,16 @@ export default class BlogDetail extends Component { // Class Component
       featured_image_url,
       blog_status
     } = this.state.blogItem;
+
     return (
-      <div>
-        <h1>{title}</h1> {/*Obtener título */}
-        <img src={featured_image_url} />{/* Obtener imagen sin estilo */}
-        <div>{content}</div> {/*Obtener contenido */}
+      <div className="blog-container">
+        <div className="content-container">
+          <h1>{title}</h1>
+          <div className="featured-image-wrapper">
+            <img src={featured_image_url} />
+          </div>
+          <div className="content">{content}</div>
+        </div>
       </div>
     );
   }
