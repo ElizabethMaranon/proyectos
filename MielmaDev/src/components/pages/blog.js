@@ -16,25 +16,24 @@ class Blog extends Component { // Agregar Class
     };
 
     this.getBlogItems = this.getBlogItems.bind(this); // Vincular función
-    this.activateInfiniteScroll(); // llamarla pero no vincularla a this
+    this.onScroll = this.onScroll.bind(this);
+    window.addEventListener("scroll", this.onScroll, false); // agregar oyente en constructor
   }
+  // eliminar oyentes y colocarlos en constructor
+  onScroll() {// Cuando se desplaza la barra de desplazamiento
+    if ( // si el estado cargando o la longitud de los elementos igual totalCount, parar
+      this.state.isLoading ||
+      this.state.blogItems.length === this.state.totalCount
+    ) {
+      return;
+    }
 
-  activateInfiniteScroll() { // crear función
-    window.onscroll = () => { // Cuando se desplaza la barra de desplazamiento
-      if ( // si el estado cargando o la longitud de los elementos igual totalCount, parar
-        this.state.isLoading ||
-        this.state.blogItems.length === this.state.totalCount
-      ) {
-        return;
-      }
-
-      if ( //altura ventana mas scroll añadidos igual altura total documento
-        window.innerHeight + document.documentElement.scrollTop ===
-        document.documentElement.offsetHeight
-      ) {
-        this.getBlogItems(); // mostrar elementos
-      }
-    };
+    if ( //altura ventana mas scroll añadidos igual altura total documento
+      window.innerHeight + document.documentElement.scrollTop ===
+      document.documentElement.offsetHeight
+    ) {
+      this.getBlogItems(); // mostrar elementos
+    }
   }
 
   getBlogItems() { // Crear función sin argumento
@@ -65,6 +64,10 @@ class Blog extends Component { // Agregar Class
 
   componentDidMount() { // fase montaje (componentWillMount obsoleto)
     this.getBlogItems(); // llamar función y ejecutar
+  }
+
+  componentWillUnmount() { // se activa al desaparecer el componente
+    window.removeEventListener("scroll", this.onScroll, false);
   }
 
   render() { // Obligatorio class component 
