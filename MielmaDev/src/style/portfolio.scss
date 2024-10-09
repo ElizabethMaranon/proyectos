@@ -11,6 +11,7 @@
       background-repeat: no-repeat;
       height: 350px; // alto
       width: 100%; // ancho
+      transition: 2s ease-in-out;
     }
 
     .img-text-wrapper {
@@ -53,6 +54,6 @@
 }
 
 .image-blur {
-  transition: 1s;
+  // transition: 1s;
   filter: brightness(10%);
 }

@@ -12,6 +12,13 @@ class Blog extends Component { // Agregar Class
     };
 
     this.getBlogItems = this.getBlogItems.bind(this); // Vincular función
+    this.activateInfiniteScroll(); // llamarla pero no vincularla a this
+  }
+
+  activateInfiniteScroll() { // crear función
+    window.onscroll = () => { // Cuando se desplaza la barra de desplazamiento
+      console.log("onscroll"); // para probar
+    };
   }
 
   getBlogItems() { // Crear función sin argumento
