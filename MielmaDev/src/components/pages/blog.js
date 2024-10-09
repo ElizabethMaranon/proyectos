@@ -21,11 +21,18 @@ class Blog extends Component { // Agregar Class
 
   activateInfiniteScroll() { // crear función
     window.onscroll = () => { // Cuando se desplaza la barra de desplazamiento
-      if (
+      if ( // si el estado cargando o la longitud de los elementos igual totalCount, parar
+        this.state.isLoading ||
+        this.state.blogItems.length === this.state.totalCount
+      ) {
+        return;
+      }
+
+      if ( //altura ventana mas scroll añadidos igual altura total documento
         window.innerHeight + document.documentElement.scrollTop ===
         document.documentElement.offsetHeight
       ) {
-        console.log("get more posts");
+        this.getBlogItems(); // mostrar elementos
       }
     };
   }
@@ -36,12 +43,17 @@ class Blog extends Component { // Agregar Class
     });
 
     axios // Método de obtención
-      .get("https://mielmadev.devcamp.space/portfolio/portfolio_blogs", { // get url endpoint (es el subdominio, en este caso devcamp space de mielmadev)
-        withCredentials: true //indicador credenciales obligatorio, booleano
-      })
-      .then(response => { // Cuando se resuelva la promesa
-        this.setState({ // ir API, recuperar datos
-          blogItems: response.data.portfolio_blogs, // cuando llegue la respuesta, llamar a this.setState, y dentro de los pares, y luego un objeto
+      .get( // get url endpoint (es el subdominio, en este caso devcamp space de mielmadev)
+        `https://mielmadev.devcamp.space/portfolio/portfolio_blogs?page=${this
+          .state.currentPage}`,
+        {
+          withCredentials: true //indicador credenciales obligatorio, booleano
+        }
+      )
+      .then(response => { // ir API, recuperar datos
+        console.log("getting - consiguiendo", response.data); // devolver cuando se llama a blogItems
+        this.setState({// cuando llegue la respuesta, llamar a this.setState, y dentro de los pares, y luego un objeto
+          blogItems: this.state.blogItems.concat(response.data.portfolio_blogs), // coger la lista actual y concat con lo que viene de la matriz
           totalCount: response.data.meta.total_records, // Asi lo llama la API
           isLoading: false // para que salga animación de cargando si es true
         });
