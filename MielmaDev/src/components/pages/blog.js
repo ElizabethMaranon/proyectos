@@ -8,13 +8,14 @@ class Blog extends Component { // Agregar Class
     super(); // Obligatorio Super en constructor
 
     this.state = { // Crear instancia
-      blogItems: [] // lMatriz vacía para poblar después
+      blogItems: [], // lMatriz vacía para poblar después
+      totalCount: 0, // cont total pred 0 (para cuando tengamos el constructor, queremos que se cargue antes de que lleguen nuestros registros que se anulará tan pronto como recibamos esa actualización)
+      currentPage: 0 // página actual pred 0 (para cuando tengamos el constructor, queremos que se cargue antes de que lleguen nuestros registros que se anulará tan pronto como recibamos esa actualización)
     };
 
     this.getBlogItems = this.getBlogItems.bind(this); // Vincular función
     this.activateInfiniteScroll(); // llamarla pero no vincularla a this
   }
-
 
   activateInfiniteScroll() { // crear función
     window.onscroll = () => { // Cuando se desplaza la barra de desplazamiento
@@ -28,6 +29,10 @@ class Blog extends Component { // Agregar Class
   }
 
   getBlogItems() { // Crear función sin argumento
+    this.setState({
+      currentPage: this.state.currentPage + 1 // de inmediato vamos a querer actualizar nuestro estado e incrementarlo en uno para la página actual. Comenzará en cero en el constructor, pero tan pronto como se llame a getBlogItems, lo actualizaremos para que sea uno, sucesivamente
+    });
+
     axios // Método de obtención
 
       .get("https://mielmadev.devcamp.space/portfolio/portfolio_blogs", { // get url endpoint (es el subdominio, en este caso devcamp space de mielmadev)
@@ -35,7 +40,8 @@ class Blog extends Component { // Agregar Class
       })
       .then(response => { // Cuando se resuelva la promesa
         this.setState({ // ir API, recuperar datos
-          blogItems: response.data.portfolio_blogs // cuando llegue la respuesta, llamar a this.setState, y dentro de los pares, y luego un objeto
+          blogItems: response.data.portfolio_blogs, // cuando llegue la respuesta, llamar a this.setState, y dentro de los pares, y luego un objeto
+          totalCount: response.data.meta.total_records // Asi lo llama la API
         });
       })
       .catch(error => { // detector de error
