@@ -15,15 +15,21 @@ class Blog extends Component { // Agregar Class
     this.activateInfiniteScroll(); // llamarla pero no vincularla a this
   }
 
+
   activateInfiniteScroll() { // crear función
     window.onscroll = () => { // Cuando se desplaza la barra de desplazamiento
-      console.log("onscroll"); // para probar
+      if (
+        window.innerHeight + document.documentElement.scrollTop ===
+        document.documentElement.offsetHeight
+      ) {
+        console.log("get more posts");
+      }
     };
   }
 
   getBlogItems() { // Crear función sin argumento
     axios // Método de obtención
-      
+
       .get("https://mielmadev.devcamp.space/portfolio/portfolio_blogs", { // get url endpoint (es el subdominio, en este caso devcamp space de mielmadev)
         withCredentials: true //indicador credenciales obligatorio, booleano
       })
@@ -45,7 +51,7 @@ class Blog extends Component { // Agregar Class
     const blogRecords = this.state.blogItems.map(blogItem => { // Crear variable almacenará registros blog. Mapear(iterar) devuelve matriz
       return <BlogItem key={blogItem.id} blogItem={blogItem} />; // Devolver con clave única
     });
-    
+
     return (
       <div className="blog-container">
         <div className="content-container">{blogRecords}</div>
