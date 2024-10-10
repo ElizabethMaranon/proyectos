@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import ReactModal from "react-modal";
 
+import BlogForm from "../blog/blog-form"; // importar blog formulario
+
 ReactModal.setAppElement(".app-wrapper");
 
 export default class BlogModal extends Component { // componente clase xq tiene su propio estado
@@ -30,7 +32,7 @@ export default class BlogModal extends Component { // componente clase xq tiene 
           this.props.handleModalClose(); // Aplicar componente
         }}
         isOpen={this.props.modalIsOpen}>{/* llamar Accesorio */}
-        <h1>I'm in a modal!</h1>{/* Lo que sucede */}
+        <BlogForm />{/* Lo que sucede, agregar el formulario */}
       </ReactModal> // cerrar accesorio, (componente secundario no autocierre)
     );
   }
