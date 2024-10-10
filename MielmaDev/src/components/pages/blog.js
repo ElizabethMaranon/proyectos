@@ -21,11 +21,18 @@ class Blog extends Component { // Agregar Class
     this.onScroll = this.onScroll.bind(this);
     window.addEventListener("scroll", this.onScroll, false); // agregar oyente en constructor
     this.handleNewBlogClick = this.handleNewBlogClick.bind(this); // vincular la función
+    this.handleModalClose = this.handleModalClose.bind(this); // vincular función
   }
-  
+
+  handleModalClose() { // Crear función
+    this.setState({ // Unir estado
+      blogModalIsOpen: false // establecer estado falso
+    });
+  }
+
   handleNewBlogClick() { // agregar función
     this.setState({ // actualizar estado si agregar nueva publicación
-      blogModalIsOpen: true 
+      blogModalIsOpen: true
     });
   }
   // eliminar oyentes y colocarlos en constructor
