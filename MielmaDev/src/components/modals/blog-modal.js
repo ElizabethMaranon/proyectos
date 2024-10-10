@@ -22,6 +22,13 @@ export default class BlogModal extends Component { // componente clase xq tiene 
         backgroundColor: "rgba(238, 202, 85, 0.75)" // color superposición (0,75 es el grado de traslucido)
       }
     };
+    //  vincular función al componente
+    this.handleSuccessfullFormSubmission = this.handleSuccessfullFormSubmission.bind(
+      this
+    );
+  }
+  handleSuccessfullFormSubmission(blog) { // función Envío de formulario exitoso
+    console.log("Envío de formulario exitoso", blog); // lo que queremos que haga la función
   }
 
   render() { // función render obligatoria para class component
@@ -32,7 +39,9 @@ export default class BlogModal extends Component { // componente clase xq tiene 
           this.props.handleModalClose(); // Aplicar componente
         }}
         isOpen={this.props.modalIsOpen}>{/* llamar Accesorio */}
-        <BlogForm />{/* Lo que sucede, agregar el formulario */}
+        <BlogForm
+          handleSuccessfullFormSubmission={this.handleSuccessfullFormSubmission} // pasar esta función como accesorio directamente al formulario de nuestro blog
+        />{/* Lo que sucede, agregar el formulario */}
       </ReactModal> // cerrar accesorio, (componente secundario no autocierre)
     );
   }
