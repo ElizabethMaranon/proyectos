@@ -23,11 +23,11 @@ class Blog extends Component { // Agregar Class
     this.handleNewBlogClick = this.handleNewBlogClick.bind(this); // vincular la función
     this.handleModalClose = this.handleModalClose.bind(this); // vincular función
     this.handleSuccessfulNewBlogSubmission = this.handleSuccessfulNewBlogSubmission.bind(
-      this // vincualr función
+      this // vincular función
     );
   }
 
-  handleSuccessfulNewBlogSubmission(blog) { // función nuevo blog envio exitoso
+  handleSuccessfulNewBlogSubmission(blog) { // función nuevo blog envío exitoso
     this.setState({
       blogModalIsOpen: false,
       blogItems: [blog].concat(this.state.blogItems) // tomar ese blog. grabar y luego pasarlo directamente a nuestra lista de nuestros blogs
