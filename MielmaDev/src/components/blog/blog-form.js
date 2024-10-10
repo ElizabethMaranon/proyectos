@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios"; // importar axios para conectar API
 
 export default class BlogForm extends Component { // componente de clase
   constructor(props) {
@@ -13,9 +14,28 @@ export default class BlogForm extends Component { // componente de clase
     this.handleSubmit = this.handleSubmit.bind(this); // vincular constructor
   }
 
+  buildForm() { // función construir formulario
+    let formData = new FormData();  // formData: Es una clase en JavaScript que nos permite tener pares clave-valor pero también agregar un nivel de abstracción a los datos que pasamos a una API
+    
+    formData.append("portfolio_blog[title]", this.state.title); // agregar objeto que acabamos de crear
+    formData.append("portfolio_blog[blog_status]", this.state.blog_status);// agregar objeto que acabamos de crear
+    
+    return formData;
+  }
+
   handleSubmit(event) { // función enviar
-    this.props.handleSuccessfullFormSubmission(this.state); // propiedades Envío de formulario exitoso
-    event.preventDefault();
+    axios
+      .post( // agregar en devcamp space, url de la API
+        "https://mielmadev.devcamp.space/portfolio/portfolio_blogs",
+        this.buildForm(), // Llama al método
+        { withCredentials: true } // Autorizarnos a nosotros mismos porque aquí es donde la seguridad es importante
+      )
+      .then(response => { // que hacer al regresar
+        this.props.handleSuccessfullFormSubmission(response.data); // lo que se envía
+      })
+      .catch(error => { // en caso de error e la función
+        console.log("Envío a blog ha tenido un error", error);
+      });
   }
 
   handleChange(event) { // Función cambios con evento de argumento
