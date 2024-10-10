@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import ReactModal from "react-modal";
 
+ReactModal.setAppElement(".app-wrapper");
+
 export default class BlogModal extends Component { // componente clase xq tiene su propio estado
   constructor(props) { // constructor básico con accesorios
     super(props); // llamará a super
