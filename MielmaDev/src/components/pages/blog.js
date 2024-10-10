@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // importar iconos
 import axios from "axios"; // Poder conectar con API
 import BlogItem from "../blog/blog-item"; // importar blog-item.js
+import BlogModal from "../modals/blog-modal"; // importar blog-modal sin componente
 
 class Blog extends Component { // Agregar Class
   constructor() { // Obligatorio Constructor
@@ -77,6 +78,7 @@ class Blog extends Component { // Agregar Class
 
     return (
       <div className="blog-container">
+        <BlogModal />
         <div className="content-container">{blogRecords}</div>
 
         {this.state.isLoading ? ( // operador ternario
