@@ -84,10 +84,12 @@ class Blog extends Component { // Agregar Class
       return <BlogItem key={blogItem.id} blogItem={blogItem} />; // Devolver con clave única
     });
 
-    return (
+    return ( // JSX
       <div className="blog-container">
-        <BlogModal modalIsOpen={this.state.blogModalIsOpen} /> {/*Pasar accesorio con valor dinámico*/}
-        
+        <BlogModal
+          handleModalClose={this.handleModalClose} // agregar accesorio
+          modalIsOpen={this.state.blogModalIsOpen} /> {/*Pasar accesorio con valor dinámico*/}
+
         <div className="new-blog-link">
           <a onClick={this.handleNewBlogClick}>Open Modal!</a> {/*manejar oyente */}
         </div>
