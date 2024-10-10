@@ -13,12 +13,20 @@ class Blog extends Component { // Agregar Class
       blogItems: [], // lMatriz vacía para poblar después
       totalCount: 0, // cont total pred 0 (para cuando tengamos el constructor, queremos que se cargue antes de que lleguen nuestros registros que se anulará tan pronto como recibamos esa actualización)
       currentPage: 0, // página actual pred 0 (para cuando tengamos el constructor, queremos que se cargue antes de que lleguen nuestros registros que se anulará tan pronto como recibamos esa actualización)
-      // isLoading: true // llamar
+      isLoading: true, // llamar
+      blogModalIsOpen: false
     };
 
     this.getBlogItems = this.getBlogItems.bind(this); // Vincular función
     this.onScroll = this.onScroll.bind(this);
     window.addEventListener("scroll", this.onScroll, false); // agregar oyente en constructor
+    this.handleNewBlogClick = this.handleNewBlogClick.bind(this); // vincular la función
+  }
+  
+  handleNewBlogClick() { // agregar función
+    this.setState({ // actualizar estado si agregar nueva publicación
+      blogModalIsOpen: true 
+    });
   }
   // eliminar oyentes y colocarlos en constructor
   onScroll() {// Cuando se desplaza la barra de desplazamiento
@@ -78,7 +86,11 @@ class Blog extends Component { // Agregar Class
 
     return (
       <div className="blog-container">
-        <BlogModal />
+        <BlogModal modalIsOpen={this.state.blogModalIsOpen} /> {/*Pasar accesorio con valor dinámico*/}
+        
+        <div className="new-blog-link">
+          <a onClick={this.handleNewBlogClick}>Open Modal!</a> {/*manejar oyente */}
+        </div>
         <div className="content-container">{blogRecords}</div>
 
         {this.state.isLoading ? ( // operador ternario

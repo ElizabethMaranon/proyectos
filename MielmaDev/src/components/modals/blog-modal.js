@@ -8,7 +8,7 @@ export default class BlogModal extends Component { // componente clase xq tiene 
   
   render() { // función render obligatoria para class component
     return ( // devuelve
-      <ReactModal isOpen={true}>{/* Accesorio */}
+      <ReactModal isOpen={this.props.modalIsOpen}>{/* llamar Accesorio */}
         <h1>I'm in a modal!</h1>{/* Lo que sucede */}
       </ReactModal> // cerrar accesorio, (componente secundario no autocierre)
     );
