@@ -28,7 +28,7 @@ export default class BlogModal extends Component { // componente clase xq tiene 
     );
   }
   handleSuccessfullFormSubmission(blog) { // función Envío de formulario exitoso
-    console.log("Envío de formulario exitoso", blog); // lo que queremos que haga la función
+    this.props.handleSuccessfulNewBlogSubmission(blog) // lo que queremos que haga la función
   }
 
   render() { // función render obligatoria para class component

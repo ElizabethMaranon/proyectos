@@ -31,7 +31,13 @@ export default class BlogForm extends Component { // componente de clase
         { withCredentials: true } // Autorizarnos a nosotros mismos porque aquí es donde la seguridad es importante
       )
       .then(response => { // que hacer al regresar
-        this.props.handleSuccessfullFormSubmission(response.data); // lo que se envía
+        this.props.handleSuccessfullFormSubmission(
+          response.data.portfolio_blog 
+        );
+        this.setState({ // Crear cadena vacía para que al enviar sustituya lo escrito por las strings 
+          title: "",
+          blog_status: ""
+        }); // lo que se envía
       })
       .catch(error => { // en caso de error e la función
         console.log("Envío a blog ha tenido un error", error);

@@ -22,6 +22,16 @@ class Blog extends Component { // Agregar Class
     window.addEventListener("scroll", this.onScroll, false); // agregar oyente en constructor
     this.handleNewBlogClick = this.handleNewBlogClick.bind(this); // vincular la función
     this.handleModalClose = this.handleModalClose.bind(this); // vincular función
+    this.handleSuccessfulNewBlogSubmission = this.handleSuccessfulNewBlogSubmission.bind(
+      this // vincualr función
+    );
+  }
+
+  handleSuccessfulNewBlogSubmission(blog) { // función nuevo blog envio exitoso
+    this.setState({
+      blogModalIsOpen: false,
+      blogItems: [blog].concat(this.state.blogItems) // tomar ese blog. grabar y luego pasarlo directamente a nuestra lista de nuestros blogs
+    });
   }
 
   handleModalClose() { // Crear función
@@ -94,6 +104,9 @@ class Blog extends Component { // Agregar Class
     return ( // JSX
       <div className="blog-container">
         <BlogModal
+          handleSuccessfulNewBlogSubmission={
+            this.handleSuccessfulNewBlogSubmission
+          } // Pasar como accesorio
           handleModalClose={this.handleModalClose} // agregar accesorio
           modalIsOpen={this.state.blogModalIsOpen} /> {/*Pasar accesorio con valor dinámico*/}
 
