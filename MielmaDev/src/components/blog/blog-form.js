@@ -16,10 +16,10 @@ export default class BlogForm extends Component { // componente de clase
 
   buildForm() { // función construir formulario
     let formData = new FormData();  // formData: Es una clase en JavaScript que nos permite tener pares clave-valor pero también agregar un nivel de abstracción a los datos que pasamos a una API
-    
+
     formData.append("portfolio_blog[title]", this.state.title); // agregar objeto que acabamos de crear
     formData.append("portfolio_blog[blog_status]", this.state.blog_status);// agregar objeto que acabamos de crear
-    
+
     return formData;
   }
 
@@ -32,8 +32,9 @@ export default class BlogForm extends Component { // componente de clase
       )
       .then(response => { // que hacer al regresar
         this.props.handleSuccessfullFormSubmission(
-          response.data.portfolio_blog 
+          response.data.portfolio_blog
         );
+
         this.setState({ // Crear cadena vacía para que al enviar sustituya lo escrito por las strings 
           title: "",
           blog_status: ""
@@ -42,6 +43,8 @@ export default class BlogForm extends Component { // componente de clase
       .catch(error => { // en caso de error e la función
         console.log("Envío a blog ha tenido un error", error);
       });
+    
+    event.preventDefault();
   }
 
   handleChange(event) { // Función cambios con evento de argumento
@@ -52,23 +55,26 @@ export default class BlogForm extends Component { // componente de clase
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          onChange={this.handleChange} // llamar a función cambios
-          name="title" // datos obtenidos de virtual dom
-          placeholder="Blog Title"
-          value={this.state.title}
-        />
-        <input
-          type="text"
-          onChange={this.handleChange}// llamar a función cambios
-          name="blog_status"// datos obtenidos de virtual dom
-          placeholder="Blog status"
-          value={this.state.blog_status}
-        />
+      <form onSubmit={this.handleSubmit} className="blog-form-wrapper">
+        <div className="two-column">
+          <input
+            type="text"
+            onChange={this.handleChange}
+            name="title"
+            placeholder="Blog Title"
+            value={this.state.title}
+          />
 
-        <button>Save</button>{/* botón guardar cambios */}
+        <input
+            type="text"
+            onChange={this.handleChange}
+            name="blog_status"
+            placeholder="Blog status"
+            value={this.state.blog_status}
+          />
+        </div>
+
+        <button className="btn">Guardar</button>{/* botón guardar cambios */}
       </form>
     );
   }

@@ -5,17 +5,13 @@
   font-weight: 500;
   border: 1px solid transparent;
   transition: all 0.5s ease-in-out; // Salida y entrada gradual
-  background-color: $SoftBlue;
-  color: white;
+  // background-color: $SoftBlue;
+  color: $SoftCyan; // Color
 
   &:active,
   &:focus {
     outline: none;
   }
-
-
-
-
   background-color: $SoftMagenta;
 }
 
@@ -30,7 +26,7 @@
     border-right: 0px;
     border-left: 0px;
     border-bottom: 1px solid $SoftCyan;
-    background-color: transparent;
+    background-color: $offwhite;
     transition: 0.5s all ease-in-out; // Salida y entrada gradual
     font-size: 1.1em;
     margin-bottom: 21px;
@@ -38,6 +34,7 @@
     &:focus {
       outline: none;
       border-bottom: 1px solid $dark-teal;
+      background-color: $SoftYellowTraslucido;
     }
   }
 }
