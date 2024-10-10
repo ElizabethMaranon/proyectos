@@ -104,6 +104,7 @@ class Blog extends Component { // Agregar Class
     return ( // JSX
       <div className="blog-container">
         <BlogModal
+          
           handleSuccessfulNewBlogSubmission={
             this.handleSuccessfulNewBlogSubmission
           } // Pasar como accesorio
@@ -111,7 +112,9 @@ class Blog extends Component { // Agregar Class
           modalIsOpen={this.state.blogModalIsOpen} /> {/*Pasar accesorio con valor dinámico*/}
 
         <div className="new-blog-link">
-          <a onClick={this.handleNewBlogClick}>Open Modal!</a> {/*manejar oyente */}
+          <a onClick={this.handleNewBlogClick}>
+            <FontAwesomeIcon icon="plus-circle" />
+          </a> {/*manejar oyente, llamar icono */}
         </div>
         <div className="content-container">{blogRecords}</div>
 

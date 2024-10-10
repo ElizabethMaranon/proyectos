@@ -1,24 +1,52 @@
-.blog-container { // repartir en columnas con items centrados
+.blog-container {
+  // repartir en columnas con items centrados
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 
-  .content-container { // repartir columnas con ancho definido
+  .new-blog-link {
+    // icono
+    position: fixed; // posicionado siempre en el mismo sitio aunque haya scroll
+    right: 0;
+    bottom: 0;
+
+    a {
+      // link
+      font-size: 3em;
+      cursor: pointer; // Mouse al pasar ( dedo)
+      color: $teal; // $softCyan
+      margin-right: 15px;
+      margin-bottom: 15px;
+      transition: 0.5s ease-in-out;
+
+      &:hover {
+        // link l pasar el mouse
+        color: $dark-teal;
+      }
+    }
+  }
+
+  .content-container {
+    // repartir columnas con ancho definido
     display: flex;
     flex-direction: column;
     width: auto; // ancho
 
-    a { // enlaces
+    a {
+      // enlaces
       text-decoration: none; // sin decoración, elimina el subrayado predeterminado de los enlaces
       color: $teal; // color = softCyan
       transition: 0.5s ease-in-out; // Tiempo de retardo en hacer transición con hover y viceversa
 
-      &:hover { // al pasar mouse 
+      &:hover {
+        // al pasar mouse 
         color: $dark-teal; // color = Dark cyan
       }
     }
 
-    h1 { // estilo de los h1
+    h1 {
+      // estilo de los h1
       font-size: 1.5rem; // em: actual, rem: matriz
     }
 

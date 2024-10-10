@@ -7,7 +7,8 @@ import {
   faTrash, // icono papelera
   faSignOutAlt, // icono cerrar sesión
   faEdit, // Icono editar
-  faSpinner // icono loading
+  faSpinner, // icono loading
+  faPlusCircle, // Plus en un círculo
 } from "@fortawesome/free-solid-svg-icons";
 
 import NavigationContainer from "./navigation/navigation-container";
@@ -21,7 +22,7 @@ import PortfolioDetail from "./portfolio/portfolio-detail";
 import Auth from "./pages/auth";
 import NoMatch from "./pages/no-match";
 
-library.add(faTrash, faSignOutAlt, faEdit, faSpinner); // agregar iconos a la biblioteca (mala practica enumerarlos, mas tarde arreglarlo con función auxiliar)
+library.add(faTrash, faSignOutAlt, faEdit, faSpinner, faPlusCircle); // agregar iconos a la biblioteca (mala practica enumerarlos, mas tarde arreglarlo con función auxiliar)
 
 export default class App extends Component {
   constructor(props) {
